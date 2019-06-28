@@ -5,15 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+using Elements;
+using Elements.Clothings;
+using Elements.Player;
+
+
 namespace ElementTesting
 {
     [TestClass]
-    public class Testing
+    public class Class1
     {
         [TestMethod]
-        public void Test1()
+        public void InitializeElemental()
         {
-
+            Player p1 = new Player();
+            
         }
     }
 }

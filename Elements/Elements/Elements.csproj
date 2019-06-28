@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{55182174-BE13-4388-BD54-4DA893C96DC2}</ProjectGuid>
+    <ProjectGuid>{10698F12-919F-4B9E-91C9-6BC2DFA04BF4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Elements</RootNamespace>
     <AssemblyName>Elements</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -41,8 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clothings\Gear.cs" />
+    <Compile Include="Clothings\Pants.cs" />
+    <Compile Include="Clothings\Shirt.cs" />
+    <Compile Include="Clothings\Clothing.cs" />
+    <Compile Include="Clothings\Top.cs" />
     <Compile Include="Element.cs" />
+    <Compile Include="Player\Enemy.cs" />
+    <Compile Include="Player\Player.cs" />
+    <Compile Include="Player\PlayerEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Weapon.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
