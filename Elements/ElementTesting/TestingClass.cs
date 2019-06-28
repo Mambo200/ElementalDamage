@@ -13,12 +13,20 @@ using Elements.Player;
 namespace ElementTesting
 {
     [TestClass]
-    public class Class1
+    public class TestingClass
     {
         [TestMethod]
         public void InitializeElemental()
         {
-            Player p1 = new Player();
+            Top top = new Top();
+            Shirt shirt = new Shirt();
+            Pants pants = new Pants();
+
+
+            Gear gear = new Gear(top, shirt, pants);
+            Weapon weapon = new Weapon(Element.Zero(), Element.Zero(), 20, 100);
+            
+            Player p1 = new Player("Peter", gear, weapon);
             
         }
     }

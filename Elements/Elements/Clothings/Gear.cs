@@ -11,8 +11,29 @@ namespace Elements.Clothings
     /// </summary>
     public class Gear
     {
-        public Top Top;
-        public Shirt Shirt;
-        public Pants Pants;
+        /// <summary>
+        /// Set Gear with 0 Elemental Defence and 0 Elemental Buff
+        /// </summary>
+        public Gear() { }
+
+        /// <summary>
+        /// Set Gear
+        /// </summary>
+        /// <param name="_top">Top Gear</param>
+        /// <param name="_shirt">Shirt Gear</param>
+        /// <param name="_pants">Pants Gear</param>
+        public Gear(Top _top, Shirt _shirt, Pants _pants)
+        {
+            Top = _top;
+            Shirt = _shirt;
+            Pants = _pants;
+        }
+
+        /// <summary>Top Gear</summary>
+        public Top Top = new Top(Element.Zero(), Element.Zero());
+        /// <summary>Shirt Gear</summary>
+        public Shirt Shirt = new Shirt(Element.Zero(), Element.Zero());
+        /// <summary>Pants Gear</summary>
+        public Pants Pants = new Pants(Element.Zero(), Element.Zero());
     }
 }
