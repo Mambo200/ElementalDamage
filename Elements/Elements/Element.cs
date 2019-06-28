@@ -13,6 +13,15 @@ namespace Elements
             return new Element();
         }
 
+        /// <summary>
+        /// Returns a new Element with no resistance and no weaknesses
+        /// </summary>
+        /// <returns>new Element with no resistance and no weaknesses</returns>
+        public static Element Zero()
+        {
+            return new Element();
+        }
+
         public bool Equals(Element x, Element y)
         {
             throw new NotImplementedException();

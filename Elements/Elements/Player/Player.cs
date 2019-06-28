@@ -9,9 +9,39 @@ namespace Elements.Player
 {
     public class Player : PlayerEntity
     {
-        public override Weapon Weapon { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
-        public override Gear Gear { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
+        /// <summary>
+        /// Create new Player
+        /// </summary>
+        /// <param name="_name">name of Player</param>
+        /// <param name="_gear">Gear of Player</param>
+        /// <param name="_weapon">Weapon of Player</param>
+        public Player(string _name, Gear _gear, Weapon _weapon)
+        {
+            Name = _name;
+            Gear = _gear;
+            Weapon = _weapon;
+        }
 
+        /// <summary>Player Type</summary>
         public override PlayerType PlayerType { get { return PlayerType.PLAYER; } }
+
+        /// <summary>
+        /// Set Name of Player
+        /// </summary>
+        /// <param name="_newName">New Name of Player</param>
+        public void SetName(string _newName) => Name = _newName;
+        /// <summary>
+        /// Set new Gear
+        /// </summary>
+        /// <param name="_newGear">New Gear of Player</param>
+        public void SetGear(Gear _newGear) => Gear = _newGear;
+        /// <summary>
+        /// Set new Gear
+        /// </summary>
+        /// <param name="_newTop">New Top of Player</param>
+        /// <param name="_newShirt">New Shirt of Player</param>
+        /// <param name="_newPants">New Pants of Player</param>
+        public void SetGear(Top _newTop, Shirt _newShirt, Pants _newPants) 
+            => Gear = new Gear(_newTop, _newShirt, _newPants);
     }
 }
