@@ -19,7 +19,14 @@ namespace ElementTesting
         public void InitializeElemental()
         {
             Player p1 = new Player();
-            
+
+            ElementMix Element = new ElementMix();
+            Assert.AreEqual(EElement.NONE, Element.Element);
+            Assert.AreEqual(0f, Element.Multiplier);
+
+            Element = new ElementMix(EElement.FIRE, 1);
+            Element = ElementMix.RandomElement();
+            Element = new ElementMix(EElement.NONE, 5);
         }
     }
 }

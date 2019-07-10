@@ -46,12 +46,14 @@
     <Compile Include="Clothings\Shirt.cs" />
     <Compile Include="Clothings\Clothing.cs" />
     <Compile Include="Clothings\Top.cs" />
-    <Compile Include="Element.cs" />
+    <Compile Include="Element\Element.cs" />
+    <Compile Include="Element\ElementDictionary.cs" />
     <Compile Include="Player\Enemy.cs" />
     <Compile Include="Player\Player.cs" />
     <Compile Include="Player\PlayerEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Weapon.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

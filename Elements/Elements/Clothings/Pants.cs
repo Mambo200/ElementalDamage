@@ -10,6 +10,6 @@ namespace Elements.Clothings
     {
         public override ClothingType Type { get { return ClothingType.PANTS; } }
 
-        public override Element ElementDefence { get; protected set; }
+        public override ElementMix ElementDefence { get; protected set; }
     }
 }
