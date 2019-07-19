@@ -12,8 +12,6 @@ namespace Elements.Clothings
     public abstract class ClothingEntity : Element.ElementDictionary 
     {
         public abstract ClothingType Type { get; }
-        public virtual ElementMix ElementDefence { get; protected set; }
-        public Dictionary<EElement, float> Resistance { get { return ElementValues; } }
     }
 
     public enum ClothingType

@@ -10,7 +10,5 @@ namespace Elements.Clothings
     {
         public override ClothingType Type { get { return ClothingType.TOP; } }
 
-        public override ElementMix ElementDefence { get; protected set; }
-
     }
 }
