@@ -9,7 +9,5 @@ namespace Elements.Clothings
     public class Pants : ClothingEntity
     {
         public override ClothingType Type { get { return ClothingType.PANTS; } }
-
-        public override ElementMix ElementDefence { get; protected set; }
     }
 }

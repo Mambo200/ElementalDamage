@@ -27,6 +27,8 @@ namespace Elements
             Multiplier = _element == EElement.NONE ? 0 : _multiplier;
         }
 
+        public void SetMultiplier(float _newValue) => Multiplier = _newValue;
+
         /// <summary>
         /// Get a random Element with Element 0 to 1
         /// </summary>
