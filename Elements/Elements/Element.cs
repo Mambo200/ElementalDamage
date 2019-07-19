@@ -6,30 +6,39 @@ using System.Threading.Tasks;
 
 namespace Elements
 {
-    public struct Element : IEqualityComparer<Element>
+    public class ElementalMix
     {
-        public static Element RandomElements(int _elementNumber)
+        public EElementalTypes ElementalType { get; private set; }
+        public float Percentage { get; private set; }
+
+        public ElementalMix(EElementalTypes _elementalType, float _percentage)
         {
-            return new Element();
+            ElementalType = _elementalType;
+            Percentage = _percentage;
         }
 
-        /// <summary>
-        /// Returns a new Element with no resistance and no weaknesses
-        /// </summary>
-        /// <returns>new Element with no resistance and no weaknesses</returns>
-        public static Element Zero()
+        public static ElementalMix[] Zero()
         {
-            return new Element();
+            ElementalMix[] toReturn = new ElementalMix[1];
+            toReturn[0] = new ElementalMix(EElementalTypes.NONE, 0f);
+            return toReturn;
         }
 
-        public bool Equals(Element x, Element y)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int GetHashCode(Element obj)
-        {
-            throw new NotImplementedException();
-        }
+        public static ElementalMix ZeroOne() { return new ElementalMix(EElementalTypes.NONE, 0f); }
     }
+
+
+    public enum EElementalTypes
+    {
+        NONE,
+        NORMAL,
+        FIRE,
+        WATER,
+        ICE,
+        ELECTRICITY,
+        GROUND,
+        STONE
+    }
+
+
 }

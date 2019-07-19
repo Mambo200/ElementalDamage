@@ -11,6 +11,16 @@ namespace Elements.Clothings
     /// </summary>
     public abstract class ClothingEntity
     {
+        public ClothingEntity()
+        {
+            ElementBuff = ElementalMix.Zero()[0];
+            ElementDefence = ElementalMix.Zero();
+        }
+        public ClothingEntity(ElementalMix[] _defence, ElementalMix _buff)
+        {
+            ElementDefence = _defence;
+            ElementBuff = _buff;
+        }
         /// <summary>
         /// Type of Clothing
         /// </summary>
@@ -19,31 +29,31 @@ namespace Elements.Clothings
         /// <summary>
         /// Elemental Defence of Clothing
         /// </summary>
-        public virtual Element ElementDefence { get; protected set; }
+        public virtual ElementalMix[] ElementDefence { get; protected set; }
 
         /// <summary>
         /// Elemental Buff of Clothing
         /// </summary>
-        public virtual Element ElementBuff { get; protected set; }
+        public virtual ElementalMix ElementBuff { get; protected set; }
 
         /// <summary>
         /// Set Elemental Defence
         /// </summary>
         /// <param name="_defence">new Elemental Defence</param>
-        public void SetElementDefence(Element _defence) => ElementDefence = _defence;
+        public void SetElementDefence(ElementalMix[] _defence) => ElementDefence = _defence;
 
         /// <summary>
         /// Set Elemental Buff
         /// </summary>
         /// <param name="_buff">new Elemental Buff</param>
-        public void SetElementBuff(Element _buff) => ElementBuff = _buff;
+        public void SetElementBuff(ElementalMix _buff) => ElementBuff = _buff;
 
         /// <summary>
         /// Set Elemental Buff and Defence
         /// </summary>
         /// <param name="_defence">new Elemental Defence</param>
         /// <param name="_buff">new Elemental Buff</param>
-        public void SetElementBuffAndDefence(Element _defence, Element _buff)
+        public void SetElementBuffAndDefence(ElementalMix[] _defence, ElementalMix _buff)
         {
             SetElementBuff(_buff);
             SetElementDefence(_defence);

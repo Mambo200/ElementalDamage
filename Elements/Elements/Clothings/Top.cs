@@ -11,22 +11,14 @@ namespace Elements.Clothings
         /// <summary>
         /// Set Top with 0 Elemental Defence and 0 Elemental Buff
         /// </summary>
-        public Top()
-        {
-            ElementBuff = Element.Zero();
-            ElementDefence = Element.Zero();
-        }
+        public Top(): base() { }
 
         /// <summary>
         /// Set Top
         /// </summary>
         /// <param name="_defence">Top Elemental Defence</param>
         /// <param name="_buff">Top Elemental Buff</param>
-        public Top(Element _defence, Element _buff)
-        {
-            ElementDefence = _defence;
-            ElementBuff = _buff;
-        }
+        public Top(ElementalMix[] _defence, ElementalMix _buff) : base(_defence, _buff) { }
 
         /// <summary>
         /// Type of Clothing

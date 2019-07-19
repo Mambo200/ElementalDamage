@@ -30,10 +30,10 @@ namespace Elements.Clothings
         }
 
         /// <summary>Top Gear</summary>
-        public Top Top = new Top(Element.Zero(), Element.Zero());
+        public Top Top = new Top(ElementalMix.Zero(), ElementalMix.ZeroOne());
         /// <summary>Shirt Gear</summary>
-        public Shirt Shirt = new Shirt(Element.Zero(), Element.Zero());
+        public Shirt Shirt = new Shirt(ElementalMix.Zero(), ElementalMix.ZeroOne());
         /// <summary>Pants Gear</summary>
-        public Pants Pants = new Pants(Element.Zero(), Element.Zero());
+        public Pants Pants = new Pants(ElementalMix.Zero(), ElementalMix.ZeroOne());
     }
 }
