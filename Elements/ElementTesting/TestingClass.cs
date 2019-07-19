@@ -24,10 +24,112 @@ namespace ElementTesting
 
 
             Gear gear = new Gear(top, shirt, pants);
-            Weapon weapon = new Weapon(Element.Zero(), Element.Zero(), 20, 100);
-            
-            Player p1 = new Player("Peter", gear, weapon);
-            
+            DamageMix weapon = new DamageMix(100, 100, new ElementalMix(EElementalTypes.ELECTRICITY, 0.5f));
+
+            Player p1 = new Player("Peter", 1000, 1000, gear, weapon);
         }
+
+        [TestMethod]
+        public void DealDamage()
+        {
+            Top top = new Top();
+            Shirt shirt = new Shirt();
+            Pants pants = new Pants();
+            Gear gear = new Gear(top, shirt, pants);
+            DamageMix weapon = new DamageMix(100, 100, new ElementalMix(EElementalTypes.ELECTRICITY, 0.5f), new ElementalMix(EElementalTypes.NONE, 0.5f));
+            Player p1 = new Player("Peter", 1000, 1000, gear, weapon);
+
+
+            ElementalMix[] defence = new ElementalMix[2];
+            defence[0] = new ElementalMix(EElementalTypes.ELECTRICITY, 1);
+            defence[1] = new ElementalMix(EElementalTypes.FIRE, 1);
+            top = new Top(defence, ElementalMix.ZeroOne());
+            shirt = new Shirt();
+            pants = new Pants();
+            gear = new Gear(top, shirt, pants);
+            weapon = new DamageMix(100, 100, new ElementalMix(EElementalTypes.GROUND, 0.7f), new ElementalMix(EElementalTypes.NONE, 0.3f));
+            Player p2 = new Player("Hans", 1000, 1000, gear, weapon);
+
+            float damage = p2.TakeDamage(p1.Weapon);
+            Assert.AreEqual(50, damage);
+        }
+
+        [TestMethod]
+        public void DealNoDamage()
+        {
+            Top top = new Top();
+            Shirt shirt = new Shirt();
+            Pants pants = new Pants();
+            Gear gear = new Gear(top, shirt, pants);
+            DamageMix weapon = new DamageMix(100, 300, new ElementalMix(EElementalTypes.ELECTRICITY, 0.5f), new ElementalMix(EElementalTypes.NONE, 0.5f));
+            Player p1 = new Player("Peter", 1000, 1000, gear, weapon);
+
+
+            ElementalMix[] defence = new ElementalMix[2];
+            defence[0] = new ElementalMix(EElementalTypes.ELECTRICITY, 2);
+            defence[1] = new ElementalMix(EElementalTypes.FIRE, 1);
+            top = new Top(defence, ElementalMix.ZeroOne());
+            shirt = new Shirt();
+            pants = new Pants();
+            gear = new Gear(top, shirt, pants);
+            weapon = new DamageMix(100, 100, new ElementalMix(EElementalTypes.GROUND, 0.7f), new ElementalMix(EElementalTypes.NONE, 0.3f));
+            Player p2 = new Player("Hans", 1000, 1000, gear, weapon);
+
+            float damage = p2.TakeDamage(p1.Weapon);
+            Assert.AreEqual(0, damage);
+        }
+
+        [TestMethod]
+        public void DealHealDamage()
+        {
+            Top top = new Top();
+            Shirt shirt = new Shirt();
+            Pants pants = new Pants();
+            Gear gear = new Gear(top, shirt, pants);
+            DamageMix weapon = new DamageMix(100, 100, new ElementalMix(EElementalTypes.ELECTRICITY, 0.5f), new ElementalMix(EElementalTypes.NONE, 0.5f));
+            Player p1 = new Player("Peter", 1000, 1000, gear, weapon);
+
+
+            ElementalMix[] defence = new ElementalMix[2];
+            defence[0] = new ElementalMix(EElementalTypes.ELECTRICITY, 3);
+            defence[1] = new ElementalMix(EElementalTypes.FIRE, 1);
+            top = new Top(defence, ElementalMix.ZeroOne());
+            shirt = new Shirt();
+            pants = new Pants();
+            gear = new Gear(top, shirt, pants);
+            weapon = new DamageMix(100, 100, new ElementalMix(EElementalTypes.GROUND, 0.7f), new ElementalMix(EElementalTypes.NONE, 0.3f));
+            Player p2 = new Player("Hans", 1000, 1000, gear, weapon);
+
+            float damage = p2.TakeDamage(p1.Weapon);
+            Assert.AreEqual(-50, damage);
+
+        }
+
+        [TestMethod]
+        public void DealHealDamage2()
+        {
+            Top top = new Top();
+            Shirt shirt = new Shirt();
+            Pants pants = new Pants();
+            Gear gear = new Gear(top, shirt, pants);
+            DamageMix weapon = new DamageMix(100, 100, new ElementalMix(EElementalTypes.ELECTRICITY, 0.5f), new ElementalMix(EElementalTypes.NONE, 0.5f));
+            Player p1 = new Player("Peter", 1000, 1000, gear, weapon);
+
+
+            ElementalMix[] defence = new ElementalMix[2];
+            defence[0] = new ElementalMix(EElementalTypes.ELECTRICITY, 2);
+            defence[1] = new ElementalMix(EElementalTypes.NONE, 2);
+            top = new Top(defence, ElementalMix.ZeroOne());
+            shirt = new Shirt();
+            pants = new Pants();
+            gear = new Gear(top, shirt, pants);
+            weapon = new DamageMix(100, 100, new ElementalMix(EElementalTypes.GROUND, 0.7f), new ElementalMix(EElementalTypes.NONE, 0.3f));
+            Player p2 = new Player("Hans", 1000, 1000, gear, weapon);
+
+            float damage = p2.TakeDamage(p1.Weapon);
+            Assert.AreEqual(-100, damage);
+
+        }
+
     }
 }

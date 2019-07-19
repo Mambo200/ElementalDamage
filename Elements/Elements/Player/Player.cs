@@ -13,11 +13,15 @@ namespace Elements.Player
         /// Create new Player
         /// </summary>
         /// <param name="_name">name of Player</param>
+        /// <param name="_currentHP">current hp of player</param>
+        /// <param name="_maxHP">max hp of Player</param>
         /// <param name="_gear">Gear of Player</param>
         /// <param name="_weapon">Weapon of Player</param>
-        public Player(string _name, Gear _gear, Weapon _weapon)
+        public Player(string _name, float _currentHP, float _maxHP, Gear _gear, DamageMix _weapon)
         {
             Name = _name;
+            CurrentHealth = _currentHP;
+            MaxHealth = _maxHP;
             Gear = _gear;
             Weapon = _weapon;
         }
