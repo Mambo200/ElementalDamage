@@ -12,8 +12,22 @@ namespace Elements.Player
         public virtual string Name { get; protected set; }
         public abstract PlayerType PlayerType { get; }
         public virtual float MaxHealth { get; protected set; }
-        public float CurrentHealth { get; protected set; }
-        public virtual DamageMix Weapon { get; protected set; }
+        private float currentHealth;
+        public float CurrentHealth
+        {
+            get { return currentHealth; }
+
+            set
+            {
+                if (value >= MaxHealth)
+                    currentHealth = MaxHealth;
+                else if (value <= 0)
+                    currentHealth = 0;
+                else
+                    currentHealth = value;
+            }
+        }
+        public virtual Weapon Weapon { get; protected set; }
         public virtual Gear Gear { get; protected set; }
         public PlayerEntity GetEntity { get { return this; } }
 
@@ -51,13 +65,38 @@ namespace Elements.Player
                         toReturn[kv.ElementalType] += kv.Percentage;
                 }
 
+                // Weapon
+                foreach (KeyValuePair<EElementalTypes, float> kv in Weapon.Resistance)
+                {
+                    if (!toReturn.ContainsKey(kv.Key))
+                        toReturn.Add(kv.Key, kv.Value);
+                    else
+                        toReturn[kv.Key] += kv.Value;
+                }
+
                 return toReturn;
 
             }
         }
 
+        /// <summary>
+        /// Init Playerentity
+        /// </summary>
+        /// <param name="_name">name of Playerentity</param>
+        /// <param name="_currentHP">current hp of Playerentity</param>
+        /// <param name="_maxHP">max hp of Playerentity</param>
+        /// <param name="_gear">Gear of Playerentity</param>
+        /// <param name="_weapon">Weapon of Playerentity</param>
+        protected void Init(string _name, float _currentHP, float _maxHP, Gear _gear, Weapon _weapon)
+        {
+            Name = _name;
+            MaxHealth = _maxHP;
+            CurrentHealth = _currentHP;
+            Gear = _gear;
+            Weapon = _weapon;
+        }
 
-        public float TakeDamage(DamageMix _damage)
+        public float TakeDamage(Weapon _damage)
         {
             float totalDamage = 0;
             float tmpDamage;
@@ -65,7 +104,7 @@ namespace Elements.Player
 
             float damageDealt = _damage.Damage;
 
-            foreach (KeyValuePair<EElementalTypes, float> kv in _damage.ElementMix)
+            foreach (KeyValuePair<EElementalTypes, float> kv in _damage.DamageBoost)
             {
                 tmpDamage = kv.Value * damageDealt;
                 if (tmpTotalRes.ContainsKey(kv.Key))
@@ -76,7 +115,9 @@ namespace Elements.Player
             return totalDamage;
         }
 
+        public float TakeDamage(PlayerEntity _player) => TakeDamage(_player.Weapon);
     }
+
 
     public enum PlayerType
     {

@@ -17,13 +17,9 @@ namespace Elements.Player
         /// <param name="_maxHP">max hp of Player</param>
         /// <param name="_gear">Gear of Player</param>
         /// <param name="_weapon">Weapon of Player</param>
-        public Player(string _name, float _currentHP, float _maxHP, Gear _gear, DamageMix _weapon)
+        public Player(string _name, float _currentHP, float _maxHP, Gear _gear, Weapon _weapon)
         {
-            Name = _name;
-            CurrentHealth = _currentHP;
-            MaxHealth = _maxHP;
-            Gear = _gear;
-            Weapon = _weapon;
+            Init(_name, _currentHP, _maxHP, _gear, _weapon);
         }
 
         /// <summary>Player Type</summary>
@@ -47,5 +43,18 @@ namespace Elements.Player
         /// <param name="_newPants">New Pants of Player</param>
         public void SetGear(Top _newTop, Shirt _newShirt, Pants _newPants) 
             => Gear = new Gear(_newTop, _newShirt, _newPants);
+
+        public static explicit operator Player(Enemy _other)
+        {
+            return new Player
+                (
+                _other.Name,
+                _other.CurrentHealth,
+                _other.MaxHealth,
+                _other.Gear,
+                _other.Weapon
+                );
+        }
+
     }
 }
