@@ -112,7 +112,68 @@ namespace Elements
             if (other.MinDamage != MinDamage) return false;
             if (other.MaxDamage != MaxDamage) return false;
 
+            #region Dictionary Check Boost
+            // check attack
+            foreach (KeyValuePair<EElementalTypes, float> kv1 in this.DamageBoost)
+            {
+                bool check = false;
+
+                foreach (KeyValuePair<EElementalTypes, float> kv2 in other.DamageBoost)
+                {
+                    if (kv1.Key == kv2.Key)
+                    {
+                        if (kv1.Value == kv2.Value)
+                        {
+                            check = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (check == false) return false;
+            }
+            #endregion
+
+            #region Dictionary Check Resistance
+            // check defence
+            foreach (KeyValuePair<EElementalTypes, float> kv1 in this.Resistance)
+            {
+                bool check = false;
+
+                foreach (KeyValuePair<EElementalTypes, float> kv2 in other.Resistance)
+                {
+                    if (kv1.Key == kv2.Key)
+                    {
+                        if (kv1.Value == kv2.Value)
+                        {
+                            check = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (check == false) return false;
+            }
+            #endregion
+
+            return true;
         }
 
+        public override int GetHashCode()
+        {
+            var hashCode = -279209218;
+            hashCode = hashCode * -1521134295 + Damage.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<Dictionary<EElementalTypes, float>>.Default.GetHashCode(Resistance);
+            hashCode = hashCode * -1521134295 + EqualityComparer<Dictionary<EElementalTypes, float>>.Default.GetHashCode(DamageBoost);
+            hashCode = hashCode * -1521134295 + MinDamage.GetHashCode();
+            hashCode = hashCode * -1521134295 + MaxDamage.GetHashCode();
+            hashCode = hashCode * -1521134295 + MidPoint.GetHashCode();
+            return hashCode;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }
