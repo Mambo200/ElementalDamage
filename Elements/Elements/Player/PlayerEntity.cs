@@ -18,6 +18,8 @@ namespace Elements.Player
         public abstract PlayerType PlayerType { get; }
         /// <summary>Max Health of Entity</summary>
         public virtual float MaxHealth { get; protected set; }
+        /// <summary>Description of Enemy</summary>
+        public virtual string Description { get; protected set; }
         /// <summary>Current Health. DO NOT USE!</summary>
         private float currentHealth;
         /// <summary>Current Health of Entity</summary>
@@ -138,6 +140,32 @@ namespace Elements.Player
         /// <param name="_player">Entity who is attacking</param>
         /// <returns></returns>
         public float TakeDamage(PlayerEntity _player) => TakeDamage(_player.Weapon);
+
+        /// <summary>
+        /// Changes the name.
+        /// </summary>
+        /// <param name="_newName">The new name.</param>
+        public void ChangeName(string _newName) => Name = _newName;
+        /// <summary>
+        /// Changes the maximum health.
+        /// </summary>
+        /// <param name="_newMaxHealth">The new maximum health.</param>
+        public void ChangeMaxHealth(float _newMaxHealth) => MaxHealth = _newMaxHealth;
+        /// <summary>
+        /// Changes the current health.
+        /// </summary>
+        /// <param name="_newCurrentHealth">The new current health.</param>
+        public void ChangeCurrentHealth(float _newCurrentHealth) => CurrentHealth = _newCurrentHealth;
+        /// <summary>
+        /// Changes the weapon.
+        /// </summary>
+        /// <param name="_newWeapon">The new weapon.</param>
+        public void ChangeWeapon(Weapon _newWeapon) => Weapon = _newWeapon;
+        /// <summary>
+        /// Changes the gear.
+        /// </summary>
+        /// <param name="_newGear">The new gear.</param>
+        public void ChangeGear(Gear _newGear) => Gear = _newGear;
     }
 
     /// <summary>
