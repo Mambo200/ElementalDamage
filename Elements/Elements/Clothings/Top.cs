@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Elements.Clothings
 {
+    /// <summary>
+    /// Top Class. See <seealso cref="Elements.Clothings.ClothingEntity"/>.
+    /// </summary>
+    /// <seealso cref="Elements.Clothings.ClothingEntity" />
     public class Top : ClothingEntity
     {
         /// <summary>
