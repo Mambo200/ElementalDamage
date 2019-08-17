@@ -45,6 +45,13 @@ namespace Elements
         /// <returns><see cref="ElementalMix"/> with type NONE and 0 multiplier</returns>
         public static ElementalMix ZeroOne() { return new ElementalMix(EElementalTypes.NONE, 0f); }
 
+        /// <summary>
+        /// Determines whether the specified <see cref="System.Object" />, is equal to this instance.
+        /// </summary>
+        /// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+        /// </returns>
         public override bool Equals(object obj)
         {
             if (obj.GetType() != this.GetType()) return false;
@@ -57,6 +64,12 @@ namespace Elements
             return true;
         }
 
+        /// <summary>
+        /// Returns a hash code for this instance.
+        /// </summary>
+        /// <returns>
+        /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+        /// </returns>
         public override int GetHashCode()
         {
             var hashCode = 1469661199;
@@ -65,6 +78,12 @@ namespace Elements
             return hashCode;
         }
 
+        /// <summary>
+        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" /> that represents this instance.
+        /// </returns>
         public override string ToString()
         {
             return ElementalType + " " + Percentage;
@@ -72,15 +91,24 @@ namespace Elements
     }
 
     /// <summary>Element Types</summary>
+    [Serializable]
     public enum EElementalTypes
     {
+        /// <summary>No Element</summary>
         NONE,
+        /// <summary>No Elemental Damage</summary>
         NORMAL,
+        /// <summary>Fire Element</summary>
         FIRE,
+        /// <summary>Water Element</summary>
         WATER,
+        /// <summary>Ice Element</summary>
         ICE,
+        /// <summary>Electric Element</summary>
         ELECTRICITY,
+        /// <summary>Ground Element</summary>
         GROUND,
+        /// <summary>Stone Element</summary>
         STONE
     }
 

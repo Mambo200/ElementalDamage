@@ -9,13 +9,22 @@ namespace Elements.Clothings
     /// <summary>
     /// Main Class for Clothings (top, shirt, pants)
     /// </summary>
+    [Serializable]
     public abstract class ClothingEntity
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ClothingEntity"/> class.
+        /// </summary>
         public ClothingEntity()
         {
             ElementBuff = ElementalMix.Zero()[0];
             ElementDefence = ElementalMix.Zero();
         }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ClothingEntity"/> class.
+        /// </summary>
+        /// <param name="_defence">Defence Attribute</param>
+        /// <param name="_buff">Buff Attribute</param>
         public ClothingEntity(ElementalMix[] _defence, ElementalMix _buff)
         {
             ElementDefence = _defence;
@@ -63,10 +72,14 @@ namespace Elements.Clothings
     /// <summary>
     /// Type of Clothing
     /// </summary>
+    [Serializable]
     public enum ClothingType
     {
+        /// <summary>Head</summary>
         TOP,
+        /// <summary>Shirt</summary>
         SHIRT,
+        /// <summary>Pants</summary>
         PANTS
     }
 }

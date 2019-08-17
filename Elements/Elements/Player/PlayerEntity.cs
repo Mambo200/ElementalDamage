@@ -7,12 +7,20 @@ using Elements.Clothings;
 
 namespace Elements.Player
 {
+    /// <summary>
+    /// Player Entity for all Players
+    /// </summary>
     public abstract class PlayerEntity
     {
+        /// <summary>Name of Entity</summary>
         public virtual string Name { get; protected set; }
+        /// <summary>Player Type. See <see cref="Elements.Player.PlayerType"/></summary>
         public abstract PlayerType PlayerType { get; }
+        /// <summary>Max Health of Entity</summary>
         public virtual float MaxHealth { get; protected set; }
+        /// <summary>Current Health. DO NOT USE!</summary>
         private float currentHealth;
+        /// <summary>Current Health of Entity</summary>
         public float CurrentHealth
         {
             get { return currentHealth; }
@@ -27,10 +35,14 @@ namespace Elements.Player
                     currentHealth = value;
             }
         }
+        /// <summary>Weapon of Entity</summary>
         public virtual Weapon Weapon { get; protected set; }
+        /// <summary>Complete Gear of Entity. See <see cref="Elements.Clothings.Pants"/>, <see cref="Elements.Clothings.Shirt"/> and <see cref="Elements.Clothings.Top"/>.</summary>
         public virtual Gear Gear { get; protected set; }
+        /// <summary>Get Entity</summary>
         public PlayerEntity GetEntity { get { return this; } }
 
+        /// <summary>Get total Resitiance of Entity</summary>
         public Dictionary<EElementalTypes, float> TotalResistance
         {
             get
@@ -96,6 +108,11 @@ namespace Elements.Player
             Weapon = _weapon;
         }
 
+        /// <summary>
+        /// Take damage. reduces <see cref="CurrentHealth"/>
+        /// </summary>
+        /// <param name="_damage">Weapon to deal damage with</param>
+        /// <returns></returns>
         public float TakeDamage(Weapon _damage)
         {
             float totalDamage = 0;
@@ -115,13 +132,22 @@ namespace Elements.Player
             return totalDamage;
         }
 
+        /// <summary>
+        /// Take damage. reduces <see cref="CurrentHealth"/>
+        /// </summary>
+        /// <param name="_player">Entity who is attacking</param>
+        /// <returns></returns>
         public float TakeDamage(PlayerEntity _player) => TakeDamage(_player.Weapon);
     }
 
-
+    /// <summary>
+    /// Entity Type
+    /// </summary>
     public enum PlayerType
     {
+        /// <summary>Entity is Player</summary>
         PLAYER,
+        /// <summary>Entity is Enemy</summary>
         ENEMY
     }
 }

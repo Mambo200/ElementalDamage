@@ -7,6 +7,10 @@ using Elements.Clothings;
 
 namespace Elements.Player
 {
+    /// <summary>
+    /// The Player. See <seealso cref="Elements.Player.PlayerEntity"/>.
+    /// </summary>
+    /// <seealso cref="Elements.Player.PlayerEntity" />
     public class Player : PlayerEntity
     {
         /// <summary>
@@ -44,6 +48,13 @@ namespace Elements.Player
         public void SetGear(Top _newTop, Shirt _newShirt, Pants _newPants) 
             => Gear = new Gear(_newTop, _newShirt, _newPants);
 
+        /// <summary>
+        /// Performs an explicit conversion from <see cref="Enemy"/> to <see cref="Player"/>.
+        /// </summary>
+        /// <param name="_other">Enemy Class</param>
+        /// <returns>
+        /// New <see cref="Player"/>
+        /// </returns>
         public static explicit operator Player(Enemy _other)
         {
             return new Player

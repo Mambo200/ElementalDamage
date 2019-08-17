@@ -7,8 +7,13 @@ using Elements.Clothings;
 
 namespace Elements.Player
 {
+    /// <summary>
+    /// Enemy Class. See <seealso cref="Elements.Player.PlayerEntity"/>
+    /// </summary>
+    /// <seealso cref="Elements.Player.PlayerEntity" />
     public class Enemy : PlayerEntity
     {
+        /// <summary>Player Type. See <see cref="Elements.Player.PlayerType" /></summary>
         public override PlayerType PlayerType { get { return PlayerType.ENEMY; } }
 
         /// <summary>
@@ -23,6 +28,14 @@ namespace Elements.Player
         {
             Init(_name, _currentHP, _maxHP, _gear, _weapon);
         }
+
+        /// <summary>
+        /// Performs an explicit conversion from <see cref="Player"/> to <see cref="Enemy"/>.
+        /// </summary>
+        /// <param name="_other">Player Class</param>
+        /// <returns>
+        /// New <see cref="Enemy"/>
+        /// </returns>
         public static explicit operator Enemy(Player _other)
         {
             return new Enemy
