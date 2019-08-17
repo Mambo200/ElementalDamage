@@ -88,6 +88,30 @@ namespace Elements
         {
             return ElementalType + " " + Percentage;
         }
+
+        /// <summary>
+        /// Changes the percentage
+        /// </summary>
+        /// <param name="_multiplier">new multiplier Value</param>
+        public void ChangePercentage(float _multiplier) => Percentage = _multiplier;
+
+        /// <summary>
+        /// Check if Elementalmix contains a specific elemental typa
+        /// </summary>
+        /// <param name="_type">Type</param>
+        /// <param name="_toCheck">Array to check</param>
+        /// <returns>
+        ///   <c>true</c> if [contains] [the specified type]; otherwise, <c>false</c>.
+        /// </returns>
+        public static bool Contains(EElementalTypes _type, params ElementalMix[] _toCheck)
+        {
+            foreach (ElementalMix type in _toCheck)
+            {
+                if (type.ElementalType == _type) return true;
+            }
+
+            return false;
+        }
     }
 
     /// <summary>Element Types</summary>

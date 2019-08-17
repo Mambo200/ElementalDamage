@@ -179,5 +179,23 @@ namespace ElementTesting
             Assert.AreEqual(2, v);
         }
 
+        [TestMethod]
+        public void AddDefence()
+        {
+            Top t = new Top();
+            Shirt s = new Shirt();
+            Pants p = new Pants();
+
+            Elements.Weapon weapon = new Elements.Weapon(10, 20, Elements.ElementalMix.Zero(), Elements.ElementalMix.ZeroOne());
+
+            Enemy enemy = new Enemy("Hans", 100, 100, new Gear(t, s, p), weapon);
+
+            bool work = enemy.Gear.AddElementDefence(out ElementalMix[] noAdd, new ElementalMix(EElementalTypes.GROUND, 0.5f), new ElementalMix(EElementalTypes.GROUND, 0.5f), new ElementalMix(EElementalTypes.GROUND, 0.5f), new ElementalMix(EElementalTypes.GROUND, 0.5f));
+            Assert.AreEqual(false, work);
+            work = enemy.Gear.RemoveElementDefence(out EElementalTypes[] noAddTypes, EElementalTypes.GROUND, EElementalTypes.GROUND, EElementalTypes.GROUND, EElementalTypes.GROUND);
+            Assert.AreEqual(false, work);
+            Assert.AreEqual(noAddTypes[0], EElementalTypes.GROUND);
+        }
+
     }
 }
