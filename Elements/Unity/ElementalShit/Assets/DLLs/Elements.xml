@@ -273,7 +273,7 @@
         <member name="F:Elements.EElementalTypes.ELECTRICITY">
             <summary>Electric Element</summary>
         </member>
-        <member name="F:Elements.EElementalTypes.GROUND">
+        <member name="F:Elements.EElementalTypes.WIND">
             <summary>Ground Element</summary>
         </member>
         <member name="F:Elements.EElementalTypes.STONE">
@@ -443,6 +443,12 @@
             Changes the gear.
             </summary>
             <param name="_newGear">The new gear.</param>
+        </member>
+        <member name="M:Elements.Player.PlayerEntity.ChangeDescription(System.String)">
+            <summary>
+            Changes the description.
+            </summary>
+            <param name="_newDescription">The new description.</param>
         </member>
         <member name="T:Elements.Player.PlayerType">
             <summary>

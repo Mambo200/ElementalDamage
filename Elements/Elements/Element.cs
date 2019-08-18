@@ -131,7 +131,7 @@ namespace Elements
         /// <summary>Electric Element</summary>
         ELECTRICITY,
         /// <summary>Ground Element</summary>
-        GROUND,
+        WIND,
         /// <summary>Stone Element</summary>
         STONE
     }
