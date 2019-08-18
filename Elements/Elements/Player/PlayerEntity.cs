@@ -166,6 +166,11 @@ namespace Elements.Player
         /// </summary>
         /// <param name="_newGear">The new gear.</param>
         public void ChangeGear(Gear _newGear) => Gear = _newGear;
+        /// <summary>
+        /// Changes the description.
+        /// </summary>
+        /// <param name="_newDescription">The new description.</param>
+        public void ChangeDescription(string _newDescription) => Description = _newDescription;
     }
 
     /// <summary>

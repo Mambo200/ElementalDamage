@@ -83,7 +83,7 @@ namespace ElementTestRealtime
             ElementalMix[] resistance = new ElementalMix[]
             {
                 new ElementalMix(EElementalTypes.ELECTRICITY, 0.5f),
-                new ElementalMix(EElementalTypes.GROUND, 0.5f),
+                new ElementalMix(EElementalTypes.WIND, 0.5f),
                 new ElementalMix(EElementalTypes.ICE, 0.2f),
             };
 
@@ -135,7 +135,7 @@ namespace ElementTestRealtime
             ElementalMix[] resistance = new ElementalMix[]
             {
                 new ElementalMix(EElementalTypes.ELECTRICITY, 0.5f),
-                new ElementalMix(EElementalTypes.GROUND, 0.5f),
+                new ElementalMix(EElementalTypes.WIND, 0.5f),
                 new ElementalMix(EElementalTypes.ICE, 0.2f),
             };
 

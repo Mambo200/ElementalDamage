@@ -53,7 +53,7 @@ namespace ElementTesting
             shirt = new Shirt();
             pants = new Pants();
             gear = new Gear(top, shirt, pants);
-            weapon = new Weapon(100, 100, null, new ElementalMix(EElementalTypes.GROUND, 0.7f), new ElementalMix(EElementalTypes.ELECTRICITY, 0.3f));
+            weapon = new Weapon(100, 100, null, new ElementalMix(EElementalTypes.WIND, 0.7f), new ElementalMix(EElementalTypes.ELECTRICITY, 0.3f));
             Player p2 = new Player("Hans", 1000, 1000, gear, weapon);
 
             float damage = p2.TakeDamage(p1.Weapon);
@@ -84,7 +84,7 @@ namespace ElementTesting
             shirt = new Shirt();
             pants = new Pants();
             gear = new Gear(top, shirt, pants);
-            weapon = new Weapon(100, 100, null, new ElementalMix(EElementalTypes.GROUND, 0.7f), new ElementalMix(EElementalTypes.NONE, 0.3f));
+            weapon = new Weapon(100, 100, null, new ElementalMix(EElementalTypes.WIND, 0.7f), new ElementalMix(EElementalTypes.NONE, 0.3f));
             Player p2 = new Player("Hans", 1000, 1000, gear, weapon);
 
             float damage = p2.TakeDamage(p1.Weapon);
@@ -115,7 +115,7 @@ namespace ElementTesting
             shirt = new Shirt();
             pants = new Pants();
             gear = new Gear(top, shirt, pants);
-            weapon = new Weapon(100, 100, null, new ElementalMix(EElementalTypes.GROUND, 0.7f), new ElementalMix(EElementalTypes.NONE, 0.3f));
+            weapon = new Weapon(100, 100, null, new ElementalMix(EElementalTypes.WIND, 0.7f), new ElementalMix(EElementalTypes.NONE, 0.3f));
             Player p2 = new Player("Hans", 1000, 1000, gear, weapon);
 
             float damage = p2.TakeDamage(p1.Weapon);
@@ -147,7 +147,7 @@ namespace ElementTesting
             shirt = new Shirt();
             pants = new Pants();
             gear = new Gear(top, shirt, pants);
-            weapon = new Weapon(100, 100, null, new ElementalMix(EElementalTypes.GROUND, 0.7f), new ElementalMix(EElementalTypes.NORMAL, 0.3f));
+            weapon = new Weapon(100, 100, null, new ElementalMix(EElementalTypes.WIND, 0.7f), new ElementalMix(EElementalTypes.NORMAL, 0.3f));
             Player p2 = new Player("Hans", 1000, 1000, gear, weapon);
 
             float damage = p2.TakeDamage(p1.Weapon);
@@ -172,7 +172,7 @@ namespace ElementTesting
             pants = new Pants();
             gear = new Gear(top, shirt, pants);
             defence = new ElementalMix[] { new ElementalMix(EElementalTypes.ELECTRICITY, 1) };
-            weapon = new Weapon(100, 100, defence, new ElementalMix(EElementalTypes.GROUND, 0.7f), new ElementalMix(EElementalTypes.NONE, 0.3f), defence[0]);
+            weapon = new Weapon(100, 100, defence, new ElementalMix(EElementalTypes.WIND, 0.7f), new ElementalMix(EElementalTypes.NONE, 0.3f), defence[0]);
             Player p1 = new Player("Hans", 1000, 1000, gear, weapon);
 
             var v = p1.TotalResistance[EElementalTypes.ELECTRICITY];
@@ -190,11 +190,11 @@ namespace ElementTesting
 
             Enemy enemy = new Enemy("Hans", 100, 100, new Gear(t, s, p), weapon);
 
-            bool work = enemy.Gear.AddElementDefence(out ElementalMix[] noAdd, new ElementalMix(EElementalTypes.GROUND, 0.5f), new ElementalMix(EElementalTypes.GROUND, 0.5f), new ElementalMix(EElementalTypes.GROUND, 0.5f), new ElementalMix(EElementalTypes.GROUND, 0.5f));
+            bool work = enemy.Gear.AddElementDefence(out ElementalMix[] noAdd, new ElementalMix(EElementalTypes.WIND, 0.5f), new ElementalMix(EElementalTypes.WIND, 0.5f), new ElementalMix(EElementalTypes.WIND, 0.5f), new ElementalMix(EElementalTypes.WIND, 0.5f));
             Assert.AreEqual(false, work);
-            work = enemy.Gear.RemoveElementDefence(out EElementalTypes[] noAddTypes, EElementalTypes.GROUND, EElementalTypes.GROUND, EElementalTypes.GROUND, EElementalTypes.GROUND);
+            work = enemy.Gear.RemoveElementDefence(out EElementalTypes[] noAddTypes, EElementalTypes.WIND, EElementalTypes.WIND, EElementalTypes.WIND, EElementalTypes.WIND);
             Assert.AreEqual(false, work);
-            Assert.AreEqual(noAddTypes[0], EElementalTypes.GROUND);
+            Assert.AreEqual(noAddTypes[0], EElementalTypes.WIND);
         }
 
     }

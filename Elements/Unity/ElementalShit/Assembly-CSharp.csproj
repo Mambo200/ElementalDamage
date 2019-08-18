@@ -62,11 +62,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\ElementUI.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Entity\Bush.cs" />
     <Compile Include="Assets\Scripts\Enemies\Entity\Golem.cs" />
     <Compile Include="Assets\Scripts\Enemies\Entity\MainEntity.cs" />
     <Compile Include="Assets\Scripts\Enemies\Entity\Slime.cs" />
+    <Compile Include="Assets\Scripts\MyCam.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\ShowStats.cs" />
     <None Include="Assets\DLLs\Elements.xml" />
+    <None Include="Assets\Fonts\readme.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>E:/Tobias/Dokumente/Github Zeug/ElementalStuff/Elements/Unity/ElementalShit/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
@@ -268,6 +273,9 @@
     <Reference Include="nunit.framework">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.14f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Elements">
+      <HintPath>E:/Tobias/Dokumente/Github Zeug/ElementalStuff/Elements/Unity/ElementalShit/Assets/DLLs/Elements.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>E:/Tobias/Dokumente/Github Zeug/ElementalStuff/Elements/Unity/ElementalShit/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
@@ -276,9 +284,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>E:/Tobias/Dokumente/Github Zeug/ElementalStuff/Elements/Unity/ElementalShit/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
-    </Reference>
-    <Reference Include="Elements">
-      <HintPath>E:/Tobias/Dokumente/Github Zeug/ElementalStuff/Elements/Unity/ElementalShit/Assets/DLLs/Elements.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.14f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

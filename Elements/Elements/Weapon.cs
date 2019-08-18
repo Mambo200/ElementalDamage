@@ -53,31 +53,11 @@ namespace Elements
             Resistance = new Dictionary<EElementalTypes, float>();
             DamageBoost = new Dictionary<EElementalTypes, float>();
 
-
-            // add Restsiance
-            //if (_resistances != null)
-            //{
-            //    float maxValue = 0;
-            //    foreach (ElementalMix mix in _resistances)
-            //    {
-            //        maxValue += mix.Percentage;
-            //    }
-            //    if (_resistances.Length == 0)
-            //        maxValue = 1;
-            //    foreach (ElementalMix mix in _resistances)
-            //    {
-            //        if (!Resistance.ContainsKey(mix.ElementalType))
-            //            Resistance.Add(mix.ElementalType, mix.Percentage / maxValue);
-            //    }
-            //}
-
             foreach (ElementalMix mix in _resistances)
             {
                 if (!Resistance.ContainsKey(mix.ElementalType))
                     Resistance.Add(mix.ElementalType, mix.Percentage);
             }
-
-
 
             // add Boost
             if (_buffs != null)
