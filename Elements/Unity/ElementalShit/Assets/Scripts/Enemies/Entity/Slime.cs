@@ -26,6 +26,8 @@ public class Slime : MainEntity
     public override void Start()
     {
         base.Start();
+
+        Debug.Log(m_Arrow, m_Arrow.gameObject);
     }
 
     // Update is called once per frame

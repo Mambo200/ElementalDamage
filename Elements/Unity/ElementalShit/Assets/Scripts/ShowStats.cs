@@ -59,8 +59,10 @@ public class ShowStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Ray ray = MyCam.GetCurrent.ScreenPointToRay(Input.mousePosition);
+        #region Raycast 3D
 
+        Ray ray = MyCam.GetCurrent.ScreenPointToRay(Input.mousePosition);
+        
         if (!Physics.Raycast(ray, out RaycastHit info))
         {
             if (m_wasHitLastFrame)
@@ -71,23 +73,25 @@ public class ShowStats : MonoBehaviour
             }
             return;
         }
-
+        
         if (info.collider.gameObject.tag != "StatsObject")
         {
             m_Renderer.color = Color.white;
             m_wasHitLastFrame = false;
             m_EUI.ResetAllText();
         }
-
+        
         if (info.collider.gameObject != this.gameObject) return;
-
-
+        
+        
         if (!m_wasHitLastFrame)
         {
             m_Renderer.color = m_MouseOver;
             m_wasHitLastFrame = true;
             m_EUI.SetAllText(enemy.Name, m_TotalDefence);
-
+        
         }
+        #endregion
+        
     }
 }

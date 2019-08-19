@@ -6,12 +6,14 @@ using Elements.Clothings;
 
 public abstract class MainEntity : MonoBehaviour
 {
+    [HideInInspector]
+    public GameObject m_Arrow;
     public abstract string Name { get; }
     public abstract Elements.Player.Enemy Enemy { get; protected set; }
 
     public virtual void Awake()
     {
-
+        m_Arrow = transform.GetChild(1).gameObject;
     }
 
     // Start is called before the first frame update

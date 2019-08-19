@@ -203,13 +203,13 @@
             <summary>
             Return an empty <see cref="T:Elements.ElementalMix"/> Array
             </summary>
-            <returns><see cref="T:Elements.ElementalMix"/> with type NONE and 0 multiplier</returns>
+            <returns><see cref="T:Elements.ElementalMix"/> with type NORMAL and 1 multiplier</returns>
         </member>
         <member name="M:Elements.ElementalMix.ZeroOne">
             <summary>
             Return an empty <see cref="T:Elements.ElementalMix"/>
             </summary>
-            <returns><see cref="T:Elements.ElementalMix"/> with type NONE and 0 multiplier</returns>
+            <returns><see cref="T:Elements.ElementalMix"/> with type NORMAL and 1 multiplier</returns>
         </member>
         <member name="M:Elements.ElementalMix.Equals(System.Object)">
             <summary>
