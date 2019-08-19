@@ -126,8 +126,9 @@ namespace Elements.Player
             foreach (KeyValuePair<EElementalTypes, float> kv in _damage.DamageBoost)
             {
                 tmpDamage = kv.Value * damageDealt;
-                if (tmpTotalRes.ContainsKey(kv.Key))
-                    tmpDamage *= (1 - tmpTotalRes[kv.Key]);
+                if (kv.Key != EElementalTypes.NORMAL)
+                    if (tmpTotalRes.ContainsKey(kv.Key))
+                        tmpDamage *= (1 - tmpTotalRes[kv.Key]);
                 totalDamage += tmpDamage;
             }
             CurrentHealth -= totalDamage;

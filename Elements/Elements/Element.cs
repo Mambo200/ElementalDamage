@@ -31,19 +31,19 @@ namespace Elements
         /// <summary>
         /// Return an empty <see cref="ElementalMix"/> Array
         /// </summary>
-        /// <returns><see cref="ElementalMix"/> with type NONE and 0 multiplier</returns>
+        /// <returns><see cref="ElementalMix"/> with type NORMAL and 1 multiplier</returns>
         public static ElementalMix[] Zero()
         {
             ElementalMix[] toReturn = new ElementalMix[1];
-            toReturn[0] = new ElementalMix(EElementalTypes.NONE, 0f);
+            toReturn[0] = new ElementalMix(EElementalTypes.NORMAL, 1f);
             return toReturn;
         }
 
         /// <summary>
         /// Return an empty <see cref="ElementalMix"/>
         /// </summary>
-        /// <returns><see cref="ElementalMix"/> with type NONE and 0 multiplier</returns>
-        public static ElementalMix ZeroOne() { return new ElementalMix(EElementalTypes.NONE, 0f); }
+        /// <returns><see cref="ElementalMix"/> with type NORMAL and 1 multiplier</returns>
+        public static ElementalMix ZeroOne() { return new ElementalMix(EElementalTypes.NORMAL, 1f); }
 
         /// <summary>
         /// Determines whether the specified <see cref="System.Object" />, is equal to this instance.
