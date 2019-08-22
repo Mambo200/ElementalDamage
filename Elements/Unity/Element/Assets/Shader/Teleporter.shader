@@ -9,6 +9,9 @@ Shader "Standard Triplanar"
 		_CircleSpeed("Speed of Circles", float) = 1
 		_ColorOne("First Color", Vector) = (1,0,0)
 		_ColorTwo("Second Color", Vector) = (0,0,0)
+
+		_InactiveColorOne("Inactive First Color", Vector) = (0,0,0)
+		_InactiveColorTwo("Inactive Second Color", Vector) = (1,1,0)
 	}
 		SubShader
 	{

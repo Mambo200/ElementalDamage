@@ -738,6 +738,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleporter2
       objectReference: {fileID: 0}
+    - target: {fileID: 2416506809414957943, guid: d94fcced9f1b89f449edd61760e92d73,
+        type: 3}
+      propertyPath: m_Target
+      value: 
+      objectReference: {fileID: 739933269}
+    - target: {fileID: 2416506809414957943, guid: d94fcced9f1b89f449edd61760e92d73,
+        type: 3}
+      propertyPath: m_TeleporterActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2416506809414957947, guid: d94fcced9f1b89f449edd61760e92d73,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -746,7 +756,7 @@ PrefabInstance:
     - target: {fileID: 2416506809414957947, guid: d94fcced9f1b89f449edd61760e92d73,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0.0000001
       objectReference: {fileID: 0}
     - target: {fileID: 2416506809414957947, guid: d94fcced9f1b89f449edd61760e92d73,
         type: 3}
@@ -791,16 +801,6 @@ PrefabInstance:
     - target: {fileID: 2416506809414957947, guid: d94fcced9f1b89f449edd61760e92d73,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2416506809414957943, guid: d94fcced9f1b89f449edd61760e92d73,
-        type: 3}
-      propertyPath: m_Target
-      value: 
-      objectReference: {fileID: 739933269}
-    - target: {fileID: 2416506809414957943, guid: d94fcced9f1b89f449edd61760e92d73,
-        type: 3}
-      propertyPath: m_TeleporterActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1429,7 +1429,7 @@ PrefabInstance:
     - target: {fileID: 3911622004515977971, guid: bb4acff5fe42f4244901e8b41e104ba5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.22
+      value: 1.07
       objectReference: {fileID: 0}
     - target: {fileID: 3911622004515977971, guid: bb4acff5fe42f4244901e8b41e104ba5,
         type: 3}
@@ -1699,6 +1699,16 @@ PrefabInstance:
       propertyPath: m_BackgroundColor.a
       value: 0.5019608
       objectReference: {fileID: 0}
+    - target: {fileID: 3911622004515977982, guid: bb4acff5fe42f4244901e8b41e104ba5,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3911622004515977982, guid: bb4acff5fe42f4244901e8b41e104ba5,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb4acff5fe42f4244901e8b41e104ba5, type: 3}
 --- !u!4 &2065811976 stripped
@@ -1810,6 +1820,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleporter1
       objectReference: {fileID: 0}
+    - target: {fileID: 2416506809414957943, guid: d94fcced9f1b89f449edd61760e92d73,
+        type: 3}
+      propertyPath: m_Target
+      value: 
+      objectReference: {fileID: 34177320}
     - target: {fileID: 2416506809414957947, guid: d94fcced9f1b89f449edd61760e92d73,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1818,7 +1833,7 @@ PrefabInstance:
     - target: {fileID: 2416506809414957947, guid: d94fcced9f1b89f449edd61760e92d73,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0.0000001
       objectReference: {fileID: 0}
     - target: {fileID: 2416506809414957947, guid: d94fcced9f1b89f449edd61760e92d73,
         type: 3}
@@ -1865,10 +1880,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2416506809414957943, guid: d94fcced9f1b89f449edd61760e92d73,
-        type: 3}
-      propertyPath: m_Target
-      value: 
-      objectReference: {fileID: 34177320}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d94fcced9f1b89f449edd61760e92d73, type: 3}
