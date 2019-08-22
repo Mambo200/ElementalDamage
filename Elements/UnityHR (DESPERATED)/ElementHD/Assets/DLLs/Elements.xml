@@ -1,0 +1,522 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Elements</name>
+    </assembly>
+    <members>
+        <member name="T:Elements.Clothings.Gear">
+            <summary>
+            This class is specified to have only three clothings: one Top, one Shirt, one Pants
+            </summary>
+        </member>
+        <member name="M:Elements.Clothings.Gear.#ctor">
+            <summary>
+            Set Gear with 0 Elemental Defence and 0 Elemental Buff
+            </summary>
+        </member>
+        <member name="M:Elements.Clothings.Gear.#ctor(Elements.Clothings.Top,Elements.Clothings.Shirt,Elements.Clothings.Pants)">
+            <summary>
+            Set Gear
+            </summary>
+            <param name="_top">Top Gear</param>
+            <param name="_shirt">Shirt Gear</param>
+            <param name="_pants">Pants Gear</param>
+        </member>
+        <member name="F:Elements.Clothings.Gear.Top">
+            <summary>Top Gear</summary>
+        </member>
+        <member name="F:Elements.Clothings.Gear.Shirt">
+            <summary>Shirt Gear</summary>
+        </member>
+        <member name="F:Elements.Clothings.Gear.Pants">
+            <summary>Pants Gear</summary>
+        </member>
+        <member name="M:Elements.Clothings.Gear.AddElementDefence(Elements.ElementalMix[]@,Elements.ElementalMix[])">
+            <summary>
+            Adds element from defence
+            </summary>
+            <param name="_notAddable">These elements could not be added because all gears already have this elemental defence in some kind. Lengh is 0 if all items could be added.</param>
+            <param name="_elements">Elements to add</param>
+            <returns>true if all Items could be added. false if one or more items failed to add</returns>
+        </member>
+        <member name="M:Elements.Clothings.Gear.RemoveElementDefence(Elements.EElementalTypes[]@,Elements.EElementalTypes[])">
+            <summary>
+            Removes element from defence
+            </summary>
+            <param name="_notRemoveable">The not removeable.</param>
+            <param name="_elements">The elements.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Elements.Clothings.Pants">
+            <summary>
+            Pants Class. See <seealso cref="T:Elements.Clothings.ClothingEntity"/>.
+            </summary>
+            <seealso cref="T:Elements.Clothings.ClothingEntity" />
+        </member>
+        <member name="M:Elements.Clothings.Pants.#ctor">
+            <summary>
+            Set Pants with 0 Elemental Defence and 0 Elemental Buff
+            </summary>
+        </member>
+        <member name="M:Elements.Clothings.Pants.#ctor(Elements.ElementalMix[],Elements.ElementalMix)">
+            <summary>
+            Set Pants
+            </summary>
+            <param name="_defence">Pants Elemental Defence</param>
+            <param name="_buff">Pants Elemental Buff</param>
+        </member>
+        <member name="P:Elements.Clothings.Pants.Type">
+            <summary>
+            Type of Clothing
+            </summary>
+        </member>
+        <member name="T:Elements.Clothings.Shirt">
+            <summary>
+            Shirt Class. See <seealso cref="T:Elements.Clothings.ClothingEntity"/>.
+            </summary>
+            <seealso cref="T:Elements.Clothings.ClothingEntity" />
+        </member>
+        <member name="M:Elements.Clothings.Shirt.#ctor">
+            <summary>
+            Set Shirt with 0 Elemental Defence and 0 Elemental Buff
+            </summary>
+        </member>
+        <member name="M:Elements.Clothings.Shirt.#ctor(Elements.ElementalMix[],Elements.ElementalMix)">
+            <summary>
+            Set Shirt
+            </summary>
+            <param name="_defence">Shirt Elemental Defence</param>
+            <param name="_buff">Shirt Elemental Buff</param>
+        </member>
+        <member name="P:Elements.Clothings.Shirt.Type">
+            <summary>
+            Type of Clothing
+            </summary>
+        </member>
+        <member name="T:Elements.Clothings.ClothingEntity">
+            <summary>
+            Main Class for Clothings (top, shirt, pants)
+            </summary>
+        </member>
+        <member name="M:Elements.Clothings.ClothingEntity.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Elements.Clothings.ClothingEntity"/> class.
+            </summary>
+        </member>
+        <member name="M:Elements.Clothings.ClothingEntity.#ctor(Elements.ElementalMix[],Elements.ElementalMix)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Elements.Clothings.ClothingEntity"/> class.
+            </summary>
+            <param name="_defence">Defence Attribute</param>
+            <param name="_buff">Buff Attribute</param>
+        </member>
+        <member name="P:Elements.Clothings.ClothingEntity.Type">
+            <summary>
+            Type of Clothing
+            </summary>
+        </member>
+        <member name="P:Elements.Clothings.ClothingEntity.ElementDefence">
+            <summary>
+            Elemental Defence of Clothing
+            </summary>
+        </member>
+        <member name="P:Elements.Clothings.ClothingEntity.ElementBuff">
+            <summary>
+            Elemental Buff of Clothing
+            </summary>
+        </member>
+        <member name="M:Elements.Clothings.ClothingEntity.SetElementDefence(Elements.ElementalMix[])">
+            <summary>
+            Set Elemental Defence
+            </summary>
+            <param name="_defence">new Elemental Defence</param>
+        </member>
+        <member name="M:Elements.Clothings.ClothingEntity.SetElementBuff(Elements.ElementalMix)">
+            <summary>
+            Set Elemental Buff
+            </summary>
+            <param name="_buff">new Elemental Buff</param>
+        </member>
+        <member name="M:Elements.Clothings.ClothingEntity.SetElementBuffAndDefence(Elements.ElementalMix[],Elements.ElementalMix)">
+            <summary>
+            Set Elemental Buff and Defence
+            </summary>
+            <param name="_defence">new Elemental Defence</param>
+            <param name="_buff">new Elemental Buff</param>
+        </member>
+        <member name="T:Elements.Clothings.ClothingType">
+            <summary>
+            Type of Clothing
+            </summary>
+        </member>
+        <member name="F:Elements.Clothings.ClothingType.TOP">
+            <summary>Head</summary>
+        </member>
+        <member name="F:Elements.Clothings.ClothingType.SHIRT">
+            <summary>Shirt</summary>
+        </member>
+        <member name="F:Elements.Clothings.ClothingType.PANTS">
+            <summary>Pants</summary>
+        </member>
+        <member name="T:Elements.Clothings.Top">
+            <summary>
+            Top Class. See <seealso cref="T:Elements.Clothings.ClothingEntity"/>.
+            </summary>
+            <seealso cref="T:Elements.Clothings.ClothingEntity" />
+        </member>
+        <member name="M:Elements.Clothings.Top.#ctor">
+            <summary>
+            Set Top with 0 Elemental Defence and 0 Elemental Buff
+            </summary>
+        </member>
+        <member name="M:Elements.Clothings.Top.#ctor(Elements.ElementalMix[],Elements.ElementalMix)">
+            <summary>
+            Set Top
+            </summary>
+            <param name="_defence">Top Elemental Defence</param>
+            <param name="_buff">Top Elemental Buff</param>
+        </member>
+        <member name="P:Elements.Clothings.Top.Type">
+            <summary>
+            Type of Clothing
+            </summary>
+        </member>
+        <member name="T:Elements.ElementalMix">
+            <summary>
+            This class helps to define new Element Mixes
+            </summary>
+        </member>
+        <member name="P:Elements.ElementalMix.ElementalType">
+            <summary>Element Type. See <see cref="T:Elements.EElementalTypes"/></summary>
+        </member>
+        <member name="P:Elements.ElementalMix.Percentage">
+            <summary>Element Multiplier</summary>
+        </member>
+        <member name="M:Elements.ElementalMix.#ctor(Elements.EElementalTypes,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Elements.ElementalMix"/> class.
+            </summary>
+            <param name="_elementalType">Type of the element</param>
+            <param name="_percentage">Multiplier</param>
+        </member>
+        <member name="M:Elements.ElementalMix.Zero">
+            <summary>
+            Return an empty <see cref="T:Elements.ElementalMix"/> Array
+            </summary>
+            <returns><see cref="T:Elements.ElementalMix"/> with type NORMAL and 1 multiplier</returns>
+        </member>
+        <member name="M:Elements.ElementalMix.ZeroOne">
+            <summary>
+            Return an empty <see cref="T:Elements.ElementalMix"/>
+            </summary>
+            <returns><see cref="T:Elements.ElementalMix"/> with type NORMAL and 1 multiplier</returns>
+        </member>
+        <member name="M:Elements.ElementalMix.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object" />, is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object" /> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Elements.ElementalMix.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:Elements.ElementalMix.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="M:Elements.ElementalMix.ChangePercentage(System.Single)">
+            <summary>
+            Changes the percentage
+            </summary>
+            <param name="_multiplier">new multiplier Value</param>
+        </member>
+        <member name="M:Elements.ElementalMix.Contains(Elements.EElementalTypes,Elements.ElementalMix[])">
+            <summary>
+            Check if Elementalmix contains a specific elemental typa
+            </summary>
+            <param name="_type">Type</param>
+            <param name="_toCheck">Array to check</param>
+            <returns>
+              <c>true</c> if [contains] [the specified type]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:Elements.EElementalTypes">
+            <summary>Element Types</summary>
+        </member>
+        <member name="F:Elements.EElementalTypes.NONE">
+            <summary>No Element</summary>
+        </member>
+        <member name="F:Elements.EElementalTypes.NORMAL">
+            <summary>No Elemental Damage</summary>
+        </member>
+        <member name="F:Elements.EElementalTypes.FIRE">
+            <summary>Fire Element</summary>
+        </member>
+        <member name="F:Elements.EElementalTypes.WATER">
+            <summary>Water Element</summary>
+        </member>
+        <member name="F:Elements.EElementalTypes.ICE">
+            <summary>Ice Element</summary>
+        </member>
+        <member name="F:Elements.EElementalTypes.ELECTRICITY">
+            <summary>Electric Element</summary>
+        </member>
+        <member name="F:Elements.EElementalTypes.WIND">
+            <summary>Ground Element</summary>
+        </member>
+        <member name="F:Elements.EElementalTypes.STONE">
+            <summary>Stone Element</summary>
+        </member>
+        <member name="T:Elements.Player.Enemy">
+            <summary>
+            Enemy Class. See <seealso cref="T:Elements.Player.PlayerEntity"/>
+            </summary>
+            <seealso cref="T:Elements.Player.PlayerEntity" />
+        </member>
+        <member name="P:Elements.Player.Enemy.PlayerType">
+            <summary>Player Type. See <see cref="T:Elements.Player.PlayerType" /></summary>
+        </member>
+        <member name="M:Elements.Player.Enemy.#ctor(System.String,System.Single,System.Single,Elements.Clothings.Gear,Elements.Weapon)">
+            <summary>
+            Create new Enemy
+            </summary>
+            <param name="_name">name of Enemy</param>
+            <param name="_currentHP">current hp of Enemy</param>
+            <param name="_maxHP">max hp of Enemy</param>
+            <param name="_gear">Gear of Enemy</param>
+            <param name="_weapon">Weapon of Enemy</param>
+        </member>
+        <member name="M:Elements.Player.Enemy.op_Explicit(Elements.Player.Player)~Elements.Player.Enemy">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Elements.Player.Player"/> to <see cref="T:Elements.Player.Enemy"/>.
+            </summary>
+            <param name="_other">Player Class</param>
+            <returns>
+            New <see cref="T:Elements.Player.Enemy"/>
+            </returns>
+        </member>
+        <member name="T:Elements.Player.Player">
+            <summary>
+            The Player. See <seealso cref="T:Elements.Player.PlayerEntity"/>.
+            </summary>
+            <seealso cref="T:Elements.Player.PlayerEntity" />
+        </member>
+        <member name="M:Elements.Player.Player.#ctor(System.String,System.Single,System.Single,Elements.Clothings.Gear,Elements.Weapon)">
+            <summary>
+            Create new Player
+            </summary>
+            <param name="_name">name of Player</param>
+            <param name="_currentHP">current hp of player</param>
+            <param name="_maxHP">max hp of Player</param>
+            <param name="_gear">Gear of Player</param>
+            <param name="_weapon">Weapon of Player</param>
+        </member>
+        <member name="P:Elements.Player.Player.PlayerType">
+            <summary>Player Type</summary>
+        </member>
+        <member name="M:Elements.Player.Player.SetName(System.String)">
+            <summary>
+            Set Name of Player
+            </summary>
+            <param name="_newName">New Name of Player</param>
+        </member>
+        <member name="M:Elements.Player.Player.SetGear(Elements.Clothings.Gear)">
+            <summary>
+            Set new Gear
+            </summary>
+            <param name="_newGear">New Gear of Player</param>
+        </member>
+        <member name="M:Elements.Player.Player.SetGear(Elements.Clothings.Top,Elements.Clothings.Shirt,Elements.Clothings.Pants)">
+            <summary>
+            Set new Gear
+            </summary>
+            <param name="_newTop">New Top of Player</param>
+            <param name="_newShirt">New Shirt of Player</param>
+            <param name="_newPants">New Pants of Player</param>
+        </member>
+        <member name="M:Elements.Player.Player.op_Explicit(Elements.Player.Enemy)~Elements.Player.Player">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Elements.Player.Enemy"/> to <see cref="T:Elements.Player.Player"/>.
+            </summary>
+            <param name="_other">Enemy Class</param>
+            <returns>
+            New <see cref="T:Elements.Player.Player"/>
+            </returns>
+        </member>
+        <member name="T:Elements.Player.PlayerEntity">
+            <summary>
+            Player Entity for all Players
+            </summary>
+        </member>
+        <member name="P:Elements.Player.PlayerEntity.Name">
+            <summary>Name of Entity</summary>
+        </member>
+        <member name="P:Elements.Player.PlayerEntity.PlayerType">
+            <summary>Player Type. See <see cref="T:Elements.Player.PlayerType"/></summary>
+        </member>
+        <member name="P:Elements.Player.PlayerEntity.MaxHealth">
+            <summary>Max Health of Entity</summary>
+        </member>
+        <member name="P:Elements.Player.PlayerEntity.Description">
+            <summary>Description of Enemy</summary>
+        </member>
+        <member name="F:Elements.Player.PlayerEntity.currentHealth">
+            <summary>Current Health. DO NOT USE!</summary>
+        </member>
+        <member name="P:Elements.Player.PlayerEntity.CurrentHealth">
+            <summary>Current Health of Entity</summary>
+        </member>
+        <member name="P:Elements.Player.PlayerEntity.Weapon">
+            <summary>Weapon of Entity</summary>
+        </member>
+        <member name="P:Elements.Player.PlayerEntity.Gear">
+            <summary>Complete Gear of Entity. See <see cref="T:Elements.Clothings.Pants"/>, <see cref="T:Elements.Clothings.Shirt"/> and <see cref="T:Elements.Clothings.Top"/>.</summary>
+        </member>
+        <member name="P:Elements.Player.PlayerEntity.GetEntity">
+            <summary>Get Entity</summary>
+        </member>
+        <member name="P:Elements.Player.PlayerEntity.TotalResistance">
+            <summary>Get total Resitiance of Entity</summary>
+        </member>
+        <member name="M:Elements.Player.PlayerEntity.Init(System.String,System.Single,System.Single,Elements.Clothings.Gear,Elements.Weapon)">
+            <summary>
+            Init Playerentity
+            </summary>
+            <param name="_name">name of Playerentity</param>
+            <param name="_currentHP">current hp of Playerentity</param>
+            <param name="_maxHP">max hp of Playerentity</param>
+            <param name="_gear">Gear of Playerentity</param>
+            <param name="_weapon">Weapon of Playerentity</param>
+        </member>
+        <member name="M:Elements.Player.PlayerEntity.TakeDamage(Elements.Weapon)">
+            <summary>
+            Take damage. reduces <see cref="P:Elements.Player.PlayerEntity.CurrentHealth"/>
+            </summary>
+            <param name="_damage">Weapon to deal damage with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Elements.Player.PlayerEntity.TakeDamage(Elements.Player.PlayerEntity)">
+            <summary>
+            Take damage. reduces <see cref="P:Elements.Player.PlayerEntity.CurrentHealth"/>
+            </summary>
+            <param name="_player">Entity who is attacking</param>
+            <returns></returns>
+        </member>
+        <member name="M:Elements.Player.PlayerEntity.ChangeName(System.String)">
+            <summary>
+            Changes the name.
+            </summary>
+            <param name="_newName">The new name.</param>
+        </member>
+        <member name="M:Elements.Player.PlayerEntity.ChangeMaxHealth(System.Single)">
+            <summary>
+            Changes the maximum health.
+            </summary>
+            <param name="_newMaxHealth">The new maximum health.</param>
+        </member>
+        <member name="M:Elements.Player.PlayerEntity.ChangeCurrentHealth(System.Single)">
+            <summary>
+            Changes the current health.
+            </summary>
+            <param name="_newCurrentHealth">The new current health.</param>
+        </member>
+        <member name="M:Elements.Player.PlayerEntity.ChangeWeapon(Elements.Weapon)">
+            <summary>
+            Changes the weapon.
+            </summary>
+            <param name="_newWeapon">The new weapon.</param>
+        </member>
+        <member name="M:Elements.Player.PlayerEntity.ChangeGear(Elements.Clothings.Gear)">
+            <summary>
+            Changes the gear.
+            </summary>
+            <param name="_newGear">The new gear.</param>
+        </member>
+        <member name="M:Elements.Player.PlayerEntity.ChangeDescription(System.String)">
+            <summary>
+            Changes the description.
+            </summary>
+            <param name="_newDescription">The new description.</param>
+        </member>
+        <member name="T:Elements.Player.PlayerType">
+            <summary>
+            Entity Type
+            </summary>
+        </member>
+        <member name="F:Elements.Player.PlayerType.PLAYER">
+            <summary>Entity is Player</summary>
+        </member>
+        <member name="F:Elements.Player.PlayerType.ENEMY">
+            <summary>Entity is Enemy</summary>
+        </member>
+        <member name="T:Elements.Weapon">
+            <summary>
+            Weapon Class
+            </summary>
+        </member>
+        <member name="P:Elements.Weapon.Damage">
+            <summary>Calculates the Damage at random</summary>
+        </member>
+        <member name="P:Elements.Weapon.Resistance">
+            <summary>Element Resistance</summary>
+        </member>
+        <member name="P:Elements.Weapon.DamageBoost">
+            <summary>Element Boost</summary>
+        </member>
+        <member name="P:Elements.Weapon.MinDamage">
+            <summary>Minimum Damage the weapon can deal (if enemy has no resistance)</summary>
+        </member>
+        <member name="P:Elements.Weapon.MaxDamage">
+            <summary>Maximum Damage the weapon can deal (if enemy has no weaknesses)</summary>
+        </member>
+        <member name="P:Elements.Weapon.MidPoint">
+            <summary>Average Damage of weapon</summary>
+        </member>
+        <member name="M:Elements.Weapon.#ctor(System.Single,System.Single,Elements.ElementalMix[],Elements.ElementalMix[])">
+            <summary>
+            Creates a weapon
+            </summary>
+            <param name="_minDamage">min damage of weapon</param>
+            <param name="_maxDamage">max damage of weapon</param>
+            <param name="_buffs">Element buff (null = no buff)</param>
+            <param name="_resistances">Element resistance (null = no reststance)</param>
+        </member>
+        <member name="M:Elements.Weapon.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object" />, is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object" /> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Elements.Weapon.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:Elements.Weapon.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+    </members>
+</doc>
