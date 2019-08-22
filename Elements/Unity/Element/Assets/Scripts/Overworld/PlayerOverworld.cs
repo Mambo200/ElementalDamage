@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerOverworld : MonoBehaviour
 {
-    private CharacterController m_Controller;
-
+    public CharacterController m_Controller { get; private set; }
+    
     public float m_MoveSpeed;
 
     // gravity
