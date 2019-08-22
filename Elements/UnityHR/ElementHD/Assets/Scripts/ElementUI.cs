@@ -5,9 +5,12 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ElementUI : MonoBehaviour
 {
-    public static Color Zero { get { return Color.black; } }
-    public static Color Resistance { get { return Color.green; } }
-    public static Color Weakness { get { return Color.red; } }
+    //public Color m_Zero;
+    //public Color m_Resistance;
+    //public Color m_Weakness;
+    public static Color Zero { get { return Color.white; } }
+    public static Color Resistance { get { return new Color(0.2235293f, 1, 0.07843132f); } }
+    public static Color Weakness { get { return new Color(1, 0.02745098f, 0.2274509f); } }
     [Header("Name Textbox")]
     [SerializeField] Text NameText;
     [Header("Element Textboxes")]
