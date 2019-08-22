@@ -70,12 +70,18 @@
     <Compile Include="Assets\Scripts\Enemies\Entity\Slime.cs" />
     <Compile Include="Assets\Scripts\FightManager.cs" />
     <Compile Include="Assets\Scripts\MyCam.cs" />
+    <Compile Include="Assets\Scripts\Overworld\MyCamOverworld.cs" />
+    <Compile Include="Assets\Scripts\Overworld\PlayerOverworld.cs" />
+    <Compile Include="Assets\Scripts\Overworld\PressurePlate.cs" />
+    <Compile Include="Assets\Scripts\Overworld\UIManagerOverworld.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\ShowStats.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Scripts\Weapons\WeaponsSave.cs" />
+    <Compile Include="Assets\Teleporter.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <None Include="Assets\DLLs\Elements.xml" />
+    <None Include="Assets\Shader\StandardTriplanar.shader" />
     <None Include="Assets\Fonts\readme.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>E:/Tobias/Dokumente/Github Zeug/ElementalStuff/Elements/UnityHR/ElementHD/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
@@ -299,6 +305,9 @@
     <Reference Include="nunit.framework">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.14f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Elements">
+      <HintPath>E:/Tobias/Dokumente/Github Zeug/ElementalStuff/Elements/UnityHR/ElementHD/Assets/DLLs/Elements.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>E:/Tobias/Dokumente/Github Zeug/ElementalStuff/Elements/UnityHR/ElementHD/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
@@ -307,9 +316,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>E:/Tobias/Dokumente/Github Zeug/ElementalStuff/Elements/UnityHR/ElementHD/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
-    </Reference>
-    <Reference Include="Elements">
-      <HintPath>E:/Tobias/Dokumente/Github Zeug/ElementalStuff/Elements/UnityHR/ElementHD/Assets/DLLs/Elements.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.14f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
