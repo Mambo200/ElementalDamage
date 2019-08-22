@@ -7,13 +7,19 @@ public class MyCamOverworld : MonoBehaviour
     public float m_MinYDistanceFromPlayer;
     public float m_MaxYDistanceFromPlayer;
     public float m_ScrollSpeed;
-    public static Camera instance;
-    public static Camera GetCurrent
+    [HideInInspector]
+    public static PlayerOverworld m_Player;
+    public static Camera m_MainCamera;
+    public static MyCamOverworld instance;
+    public static MyCamOverworld GetCurrent
     {
         get
         {
             if (instance == null)
-                instance = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+            {
+                instance = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MyCamOverworld>();
+                if (instance == null) Debug.LogWarning("MyCamOverworld could not be found");
+            }
             return instance;
         }
     }
@@ -21,7 +27,11 @@ public class MyCamOverworld : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        m_Player = transform.parent.GetComponent<PlayerOverworld>();
+        if (m_Player == null) Debug.LogWarning("Player is Empty");
+
+        m_MainCamera = GetComponent<Camera>();
+        if (m_MainCamera == null) Debug.LogWarning("No Camera on this object", this.gameObject);
     }
 
     // Update is called once per frame

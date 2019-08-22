@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\ShowStats.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Scripts\Weapons\WeaponsSave.cs" />
+    <Compile Include="Assets\Teleporter.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <None Include="Assets\DLLs\Elements.xml" />
     <None Include="Assets\Shader\StandardTriplanar.shader" />
