@@ -52,10 +52,12 @@ Shader "Standard Triplanar"
 			float x = (pow(IN.localCoord.x, 2));
 			float z = (pow(IN.localCoord.z, 2));
 			
+			//x = pow(length(IN.localCoord.x), 2);
+			//z = pow(length(IN.localCoord.z), 2);
 			
 			
 			float red = sin(x + z + time);
-			red = sign(red);
+			red = sign(sqrt(red));
 
 			float blue = 0;
 			float green = 0;

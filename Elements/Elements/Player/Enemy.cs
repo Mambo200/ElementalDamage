@@ -11,6 +11,7 @@ namespace Elements.Player
     /// Enemy Class. See <seealso cref="Elements.Player.PlayerEntity"/>
     /// </summary>
     /// <seealso cref="Elements.Player.PlayerEntity" />
+    [Serializable]
     public class Enemy : PlayerEntity
     {
         /// <summary>Player Type. See <see cref="Elements.Player.PlayerType" /></summary>

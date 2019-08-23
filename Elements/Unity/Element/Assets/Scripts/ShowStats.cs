@@ -61,7 +61,7 @@ public class ShowStats : MonoBehaviour
     {
         #region Raycast 3D
 
-        Ray ray = MyCam.GetCurrent.ScreenPointToRay(Input.mousePosition);
+        Ray ray = MyCamBattle.GetCurrent.m_BattleCam.ScreenPointToRay(Input.mousePosition);
         
         if (!Physics.Raycast(ray, out RaycastHit info))
         {

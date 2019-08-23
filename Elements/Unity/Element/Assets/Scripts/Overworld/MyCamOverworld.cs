@@ -10,7 +10,7 @@ public class MyCamOverworld : MonoBehaviour
     [HideInInspector]
     public static PlayerOverworld m_Player;
     public static Camera m_MainCamera;
-    public static MyCamOverworld instance;
+    private static MyCamOverworld instance;
     public static MyCamOverworld GetCurrent
     {
         get
@@ -27,6 +27,7 @@ public class MyCamOverworld : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         m_Player = transform.parent.GetComponent<PlayerOverworld>();
         if (m_Player == null) Debug.LogWarning("Player is Empty");
 
@@ -57,5 +58,10 @@ public class MyCamOverworld : MonoBehaviour
         //Debug.LogWarning(newCamPos);
         // Set new Camera Position
         GetCurrent.transform.position = newCamPos;
+    }
+
+    private void ChangedToOW()
+    {
+
     }
 }

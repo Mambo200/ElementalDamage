@@ -100,9 +100,11 @@ public class FightManager : MonoBehaviour
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         List<Player> playerList = new List<Player>();
 
-        foreach (GameObject go in players)
-            playerList.Add(go.GetComponent<Player>());
+        for (int i = 1; i < players.Length; i++)
+        {
+            playerList.Add(players[i].GetComponent<Player>());
 
+        }
         return playerList;
     }
 
@@ -131,6 +133,7 @@ public class FightManager : MonoBehaviour
             // Set Index and show arrow
             EnemyIndex = 0;
 
+            if (allEnemys.Count <= 0) BattleOver();
 
         }
         #endregion
@@ -175,5 +178,10 @@ public class FightManager : MonoBehaviour
         {
             p.attacked = false;
         }
+    }
+
+    public void BattleOver()
+    {
+        MySceneManager.LoadOverWorldScene();
     }
 }

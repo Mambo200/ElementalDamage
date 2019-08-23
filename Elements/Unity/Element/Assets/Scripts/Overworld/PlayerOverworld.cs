@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerOverworld : MonoBehaviour
 {
-    public CharacterController m_Controller { get; private set; }
+    public CharacterController Controller { get; private set; }
     
     public float m_MoveSpeed;
+    public bool m_InFight = false;
 
     // gravity
     public float m_FallSpeed;
@@ -16,15 +17,20 @@ public class PlayerOverworld : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_Controller = GetComponent<CharacterController>();
+        Controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (m_InFight == true) return;
+
+        if (MySceneManager.m_ChangedToOW)
+            ChangedToOW();
+
         Vector3 toMove = new Vector3();
         // Gravity
-        if(!m_Controller.isGrounded)
+        if(!Controller.isGrounded)
         {
             m_CurrentFallSpeed += (m_FallSpeed * m_FallSpeed) * Time.deltaTime;
             if (m_CurrentFallSpeed > m_MaxFallSpeed) m_CurrentFallSpeed = m_MaxFallSpeed;
@@ -48,6 +54,17 @@ public class PlayerOverworld : MonoBehaviour
         
 
         // Set Position
-        m_Controller.Move((toMove.normalized * Time.deltaTime * m_MoveSpeed) + new Vector3(0, toMove.y, 0));
+        Controller.Move((toMove.normalized * Time.deltaTime * m_MoveSpeed) + new Vector3(0, toMove.y, 0));
     }
+
+    private void ChangedToOW()
+    {
+        CharacterController c = GetComponent<CharacterController>();
+        c.enabled = false;
+        transform.position = MySceneManager.m_PlayerPosition;
+        c.enabled = true;
+
+        MySceneManager.m_Executed = true;
+    }
+
 }

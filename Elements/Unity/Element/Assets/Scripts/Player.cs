@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Ray r = MyCam.GetCurrent.ScreenPointToRay(Input.mousePosition);
+            Ray r = MyCamBattle.GetCurrent.m_BattleCam.ScreenPointToRay(Input.mousePosition);
 
             // something was hit
             if(Physics.Raycast(r, out RaycastHit info))
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
 
     private void ShootRayForStats()
     {
-        Ray ray = MyCam.GetCurrent.ScreenPointToRay(Input.mousePosition);
+        Ray ray = MyCamBattle.GetCurrent.m_BattleCam.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out RaycastHit info))
         {
@@ -69,5 +69,6 @@ public class Player : MonoBehaviour
             attacked = true;
         }
     }
+
 
 }
