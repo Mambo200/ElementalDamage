@@ -11,6 +11,7 @@ namespace Elements.Player
     /// The Player. See <seealso cref="Elements.Player.PlayerEntity"/>.
     /// </summary>
     /// <seealso cref="Elements.Player.PlayerEntity" />
+    [Serializable]
     public class Player : PlayerEntity
     {
         /// <summary>

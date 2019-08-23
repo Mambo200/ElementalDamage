@@ -10,6 +10,7 @@ namespace Elements.Player
     /// <summary>
     /// Player Entity for all Players
     /// </summary>
+    [Serializable]
     public abstract class PlayerEntity
     {
         /// <summary>Name of Entity</summary>
@@ -177,6 +178,7 @@ namespace Elements.Player
     /// <summary>
     /// Entity Type
     /// </summary>
+    [Serializable]
     public enum PlayerType
     {
         /// <summary>Entity is Player</summary>

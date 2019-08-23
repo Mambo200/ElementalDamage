@@ -6,6 +6,7 @@ using Elements.Clothings;
 
 public abstract class MainEntity : MonoBehaviour
 {
+    public bool m_alive = true;
     [HideInInspector]
     public GameObject m_Arrow;
     public abstract string Name { get; }
@@ -13,6 +14,7 @@ public abstract class MainEntity : MonoBehaviour
 
     public virtual void Awake()
     {
+        if (!m_alive) Destroy(this.gameObject);
         m_Arrow = transform.GetChild(1).gameObject;
     }
 

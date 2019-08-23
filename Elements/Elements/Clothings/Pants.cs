@@ -10,6 +10,7 @@ namespace Elements.Clothings
     /// Pants Class. See <seealso cref="Elements.Clothings.ClothingEntity"/>.
     /// </summary>
     /// <seealso cref="Elements.Clothings.ClothingEntity" />
+    [Serializable]
     public class Pants : ClothingEntity
     {
         /// <summary>

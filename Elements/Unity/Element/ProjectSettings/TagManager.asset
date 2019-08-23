@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Teleport
   - Hint
+  - BattleCam
   layers:
   - Default
   - TransparentFX

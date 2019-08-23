@@ -9,6 +9,7 @@ namespace Elements.Clothings
     /// <summary>
     /// This class is specified to have only three clothings: one Top, one Shirt, one Pants
     /// </summary>
+    [Serializable]
     public class Gear
     {
         /// <summary>
