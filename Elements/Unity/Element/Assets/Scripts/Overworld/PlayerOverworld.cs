@@ -25,8 +25,9 @@ public class PlayerOverworld : MonoBehaviour
     {
         if (m_InFight == true) return;
 
-        if (MySceneManager.m_ChangedToOW)
-            ChangedToOW();
+#pragma warning HIER
+        //if (MySceneManager.m_ChangedToOW)
+        //    ChangedToOW();
 
         Vector3 toMove = new Vector3();
         // Gravity
@@ -55,16 +56,23 @@ public class PlayerOverworld : MonoBehaviour
 
         // Set Position
         Controller.Move((toMove.normalized * Time.deltaTime * m_MoveSpeed) + new Vector3(0, toMove.y, 0));
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject go = Instantiate(SceneChangeManager.Get.InvokeEnemy(EnemySpecificType.GOLEM));
+            go.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 3, this.transform.position.z);
+        }
     }
 
-    private void ChangedToOW()
-    {
-        CharacterController c = GetComponent<CharacterController>();
-        c.enabled = false;
-        transform.position = MySceneManager.m_PlayerPosition;
-        c.enabled = true;
-
-        MySceneManager.m_Executed = true;
-    }
+#pragma warning HIER
+    //private void ChangedToOW()
+    //{
+    //    CharacterController c = GetComponent<CharacterController>();
+    //    c.enabled = false;
+    //    transform.position = MySceneManager.m_PlayerPosition;
+    //    c.enabled = true;
+    //
+    //    MySceneManager.m_Executed = true;
+    //}
 
 }

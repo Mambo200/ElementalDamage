@@ -68,9 +68,9 @@
     <Compile Include="Assets\Scripts\Enemies\Entity\Golem.cs" />
     <Compile Include="Assets\Scripts\Enemies\Entity\MainEntity.cs" />
     <Compile Include="Assets\Scripts\Enemies\Entity\Slime.cs" />
+    <Compile Include="Assets\Scripts\EnemySpecificType.cs" />
     <Compile Include="Assets\Scripts\FightManager.cs" />
     <Compile Include="Assets\Scripts\MyCamBattle.cs" />
-    <Compile Include="Assets\Scripts\MySceneManager.cs" />
     <Compile Include="Assets\Scripts\Overworld\EncounterEnter.cs" />
     <Compile Include="Assets\Scripts\Overworld\MyCamOverworld.cs" />
     <Compile Include="Assets\Scripts\Overworld\PlayerOverworld.cs" />
@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Overworld\Teleporter.cs" />
     <Compile Include="Assets\Scripts\Overworld\UIManagerOverworld.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\SceneChangeManager.cs" />
     <Compile Include="Assets\Scripts\ShowStats.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Scripts\Weapons\WeaponsSave.cs" />

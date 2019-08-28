@@ -13,6 +13,7 @@ public class MyCamBattle : MonoBehaviour
             if (instance == null)
             {
                 instance = GameObject.FindGameObjectWithTag("BattleCam").GetComponent<MyCamBattle>();
+                
             }
             return instance;
         }
@@ -20,5 +21,15 @@ public class MyCamBattle : MonoBehaviour
 
     private void Start()
     {
+        if(instance != null)
+        {
+            Debug.Log("An instance of Battle Cam already exists. Destroy this");
+            Destroy(this.gameObject);
+            return;
+        }
+
+        MyCamBattle.GetCurrent.Load();
     }
+
+    private void Load() { }
 }

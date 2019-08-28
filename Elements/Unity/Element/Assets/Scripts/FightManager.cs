@@ -182,6 +182,7 @@ public class FightManager : MonoBehaviour
 
     public void BattleOver()
     {
-        MySceneManager.LoadOverWorldScene();
+#pragma warning HIER
+     //   MySceneManager.LoadOverWorldScene();
     }
 }
