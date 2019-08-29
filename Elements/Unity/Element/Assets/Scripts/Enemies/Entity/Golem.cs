@@ -17,7 +17,7 @@ public class Golem : MainEntity
     public override void Awake()
     {
         base.Awake();
-        Enemy = Init(10, 20, Name, 150);
+        Enemy = Init(5, 10, Name, 150);
     }
 
     // Start is called before the first frame update

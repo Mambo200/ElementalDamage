@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Enemies\Entity\Slime.cs" />
     <Compile Include="Assets\Scripts\EnemySpecificType.cs" />
     <Compile Include="Assets\Scripts\FightManager.cs" />
+    <Compile Include="Assets\Scripts\LightManager.cs" />
     <Compile Include="Assets\Scripts\MyCamBattle.cs" />
     <Compile Include="Assets\Scripts\Overworld\EncounterEnter.cs" />
     <Compile Include="Assets\Scripts\Overworld\MyCamOverworld.cs" />

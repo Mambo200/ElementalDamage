@@ -14,7 +14,7 @@ public class Slime : MainEntity
     public override void Awake()
     {
         base.Awake();
-        Enemy = Init(5, 10, Name, 100);
+        Enemy = Init(2, 5, Name, 100);
         Enemy.Gear.AddElementDefence(out Elements.ElementalMix[] noAdd,
             new Elements.ElementalMix(Elements.EElementalTypes.FIRE, 0.5f),
             new Elements.ElementalMix(Elements.EElementalTypes.ICE, -1f),

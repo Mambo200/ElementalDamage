@@ -21,13 +21,6 @@ public class MyCamBattle : MonoBehaviour
 
     private void Start()
     {
-        if(instance != null)
-        {
-            Debug.Log("An instance of Battle Cam already exists. Destroy this");
-            Destroy(this.gameObject);
-            return;
-        }
-
         MyCamBattle.GetCurrent.Load();
     }
 

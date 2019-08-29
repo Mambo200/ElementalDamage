@@ -4,10 +4,14 @@ using UnityEngine;
 
 using Elements.Player;
 using Elements.Clothings;
+using UnityEngine.Events;
 
 public class EncounterEnter : MonoBehaviour
 {
     public EnemySpecificType[] m_Enemies;
+    [SerializeField]
+    UnityEvent m_AfterDefeated;
+    PlayerOverworld m_Player;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,12 +32,21 @@ public class EncounterEnter : MonoBehaviour
         {
             GOs[i] = Instantiate(SceneChangeManager.Get.InvokeEnemy(m_Enemies[i]), this.gameObject.transform);
         }
-#pragma warning HIER
-        SceneChangeManager.Get.ChangeToBattle(GOs);
+
+        // set player in fight bool to true
+        m_Player = other.gameObject.GetComponent<PlayerOverworld>();
+        m_Player.m_InFight = true;
+
+        SceneChangeManager.Get.ChangeToBattle(this.gameObject, GOs);
     }
 
     private void OnDestroy()
     {
+        // Do Functions if Enemy is dead
+        m_AfterDefeated.Invoke();
+
+        // Player is not in fight anymore, set in fight bool to false
+        m_Player.m_InFight = false;
     }
 
 }

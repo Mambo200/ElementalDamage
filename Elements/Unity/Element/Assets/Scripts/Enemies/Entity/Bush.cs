@@ -22,13 +22,24 @@ public class Bush : MainEntity
     public override void Awake()
     {
         base.Awake();
+
+        Enemy = Init(2, 5, Name, 50);
+        Enemy.Gear.AddElementDefence(out Elements.ElementalMix[] noAdd,
+            new Elements.ElementalMix(Elements.EElementalTypes.FIRE, -2),
+            new Elements.ElementalMix(Elements.EElementalTypes.ICE, -0.5f),
+            new Elements.ElementalMix(Elements.EElementalTypes.WIND, -0.5f),
+            new Elements.ElementalMix(Elements.EElementalTypes.ELECTRICITY, 0.2f),
+            new Elements.ElementalMix(Elements.EElementalTypes.STONE, -0.5f)
+            );
+
+        if (noAdd.Length != 0) Debug.LogWarning(noAdd.Length + " Elements could not be added to " + Name);
+
     }
 
     // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
-        Enemy = Init(2, 5, Name, 50);
     }
 
     // Update is called once per frame

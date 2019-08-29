@@ -124,4 +124,7 @@ public class Teleporter : MonoBehaviour
         if (other.gameObject.tag != "Player") return;
         m_active = true;
     }
+
+    public void Activate()      => m_TeleporterActive = true;
+    public void Deactivate()    => m_TeleporterActive = false;
 }
