@@ -13,6 +13,7 @@ public class MyCamBattle : MonoBehaviour
             if (instance == null)
             {
                 instance = GameObject.FindGameObjectWithTag("BattleCam").GetComponent<MyCamBattle>();
+                
             }
             return instance;
         }
@@ -20,5 +21,8 @@ public class MyCamBattle : MonoBehaviour
 
     private void Start()
     {
+        MyCamBattle.GetCurrent.Load();
     }
+
+    private void Load() { }
 }

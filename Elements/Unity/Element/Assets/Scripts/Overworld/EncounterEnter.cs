@@ -4,17 +4,17 @@ using UnityEngine;
 
 using Elements.Player;
 using Elements.Clothings;
+using UnityEngine.Events;
 
 public class EncounterEnter : MonoBehaviour
 {
-    private GameObject[] m_GOs;
-    public MainEntity[] m_Enemies;
+    public EnemySpecificType[] m_Enemies;
+    [SerializeField]
+    UnityEvent m_AfterDefeated;
+    PlayerOverworld m_Player;
     // Start is called before the first frame update
     void Start()
     {
-
-        m_GOs = new GameObject[m_Enemies.Length];
-
 
         if(m_Enemies.Length <= 0 || m_Enemies == null)
         {
@@ -27,23 +27,26 @@ public class EncounterEnter : MonoBehaviour
     {
         if (other.gameObject.tag != "Player") return;
 
-        for (int i = 0; i < m_GOs.Length; i++)
+        GameObject[] GOs = new GameObject[m_Enemies.Length];
+        for (int i = 0; i < m_Enemies.Length; i++)
         {
-            GameObject go = new GameObject("Enemy", typeof(Slime));
-            go.transform.position = new Vector3(0, -10000, 0);
-
-            m_GOs[i] = go;
-            m_Enemies[i] = go.GetComponent<MainEntity>();
+            GOs[i] = Instantiate(SceneChangeManager.Get.InvokeEnemy(m_Enemies[i]), this.gameObject.transform);
         }
 
-        MySceneManager.LoadBattleScene(this.gameObject, other.gameObject.transform.position);
+        // set player in fight bool to true
+        m_Player = other.gameObject.GetComponent<PlayerOverworld>();
+        m_Player.m_InFight = true;
+
+        SceneChangeManager.Get.ChangeToBattle(this.gameObject, GOs);
     }
 
     private void OnDestroy()
     {
-        foreach (GameObject go in m_GOs)
-        {
-            Destroy(go);
-        }
+        // Do Functions if Enemy is dead
+        m_AfterDefeated.Invoke();
+
+        // Player is not in fight anymore, set in fight bool to false
+        m_Player.m_InFight = false;
     }
+
 }

@@ -182,6 +182,6 @@ public class FightManager : MonoBehaviour
 
     public void BattleOver()
     {
-        MySceneManager.LoadOverWorldScene();
+        SceneChangeManager.Get.ChangeToOverWorld();
     }
 }
