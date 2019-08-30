@@ -71,26 +71,25 @@ public class SceneChangeManager : MonoBehaviour
         // set trigger GO
         m_EncounterTrigger = _trigger;
 
+        float xPos = 0;
         // calculate position of enemies
         if (m_Enemies.Length % 2 == 0)
-        {
             // Gerade
-            // NOT FINISHED!
-        }
+            // get most left x pos
+            xPos = -(m_Enemies.Length - 1) * (m_XShiftPerEnemy / 2);
         else
-        {
             // Ungerade
-            float xPos = -(m_Enemies.Length - 1) / 2 * m_XShiftPerEnemy;
+            // get most left x pos
+            xPos = -(m_Enemies.Length - 1) / 2 * m_XShiftPerEnemy;
 
-            for (int i = 0; i < m_Enemies.Length; i++)
-            {
-                m_Enemies[i].transform.position = new Vector3(
-                    0 + xPos + i * m_XShiftPerEnemy,
-                    10000 - 6,
-                    m_Enemies[i].transform.position.z);
-            }
-
+        for (int i = 0; i < m_Enemies.Length; i++)
+        {
+            m_Enemies[i].transform.position = new Vector3(
+                0 + xPos + i * m_XShiftPerEnemy,
+                10000 - 6,
+                m_Enemies[i].transform.position.z);
         }
+
 
         // activate Fight Scene
         m_BattleGO.SetActive(true);
@@ -101,6 +100,8 @@ public class SceneChangeManager : MonoBehaviour
         // deactivate OW Camera. activate Battle Camera
         MyCamOverworld.GetCurrent.gameObject.SetActive(false);
         MyCamBattle.GetCurrent.gameObject.SetActive(true);
+
+        FightManager.GetFight.NewRound();
     }
 
     public void ChangeToOverWorld()

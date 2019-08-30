@@ -45,8 +45,10 @@ public class FightManager : MonoBehaviour
     private void Start()
     {
         EnemyTurn = false;
-        allEnemys = FindEnemies();
         allPlayers = FindPlayers();
+        allEnemys = FindEnemies();
+        foreach (Player player in allPlayers)
+            player.attacked = false;
         allEnemys[0].m_Arrow.SetActive(true);
         EnemyIndex = 0;
     }
@@ -184,4 +186,6 @@ public class FightManager : MonoBehaviour
     {
         SceneChangeManager.Get.ChangeToOverWorld();
     }
+
+    public void NewRound() => Start();
 }
