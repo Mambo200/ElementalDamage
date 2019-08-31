@@ -5,6 +5,10 @@ using UnityEngine;
 public class SceneChangeManager : MonoBehaviour
 {
     [Header("Main Gameobjects of Overworld and Battle")]
+    [SerializeField] public Player m_PlayerBattle;
+    [SerializeField] public PlayerOverworld m_PlayerOW;
+
+    [Header("Main Gameobjects of Overworld and Battle")]
     [SerializeField] private GameObject m_OverWorldGO;
     [SerializeField] private GameObject m_BattleGO;
 
@@ -54,6 +58,8 @@ public class SceneChangeManager : MonoBehaviour
             return;
         }
         instance = this;
+
+        m_PlayerBattle.Start();
     }
 
     // Update is called once per frame

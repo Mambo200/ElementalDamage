@@ -18,6 +18,10 @@ public class Teleporter : MonoBehaviour
     /// <summary>Renderer of this Object</summary>
     private Renderer m_Renderer;
 
+    // x encounter has to be defeated before Teleporter will activate
+    /// <summary>Enemies to defeat (</summary>
+    [SerializeField] private int m_EncounterCount = 0;
+
     // Shader    
     /// <summary>ID of first Circle</summary>
     private int m_FirstProperty;
@@ -127,4 +131,15 @@ public class Teleporter : MonoBehaviour
 
     public void Activate()      => m_TeleporterActive = true;
     public void Deactivate()    => m_TeleporterActive = false;
+
+    public void DecreaseEncounterCount()
+    {
+        m_EncounterCount--;
+        if (m_EncounterCount < 0) m_EncounterCount = 0;
+        if(m_EncounterCount == 0)
+        {
+            m_TeleporterActive = true;
+        }
+    }
+    public void RaiseEncounterCount() => m_EncounterCount++;
 }
