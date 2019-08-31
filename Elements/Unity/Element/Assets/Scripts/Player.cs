@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public Elements.Player.Player player;
     public ElementUI m_EUI;
     // Start is called before the first frame update
-    IEnumerator Start()
+    public IEnumerator Start()
     {
         player = new Elements.Player.Player("Haans", 200, 200, new Gear(new Top(), new Shirt(), new Pants()), PlayerWeapon.Icicle(1));
 
