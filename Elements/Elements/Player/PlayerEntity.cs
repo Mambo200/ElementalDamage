@@ -44,6 +44,10 @@ namespace Elements.Player
         public virtual Gear Gear { get; protected set; }
         /// <summary>Get Entity</summary>
         public PlayerEntity GetEntity { get { return this; } }
+        /// <summary>Get the Health in Percent of Max health. from 0 to 100</summary>
+        public float HealthPercentage { get { return (CurrentHealth / MaxHealth) * 100; } }
+        /// <summary>Get the Health in Percent of Max health. from 0 to 1</summary>
+        public float HealthPercentageZeroOne { get { return (CurrentHealth / MaxHealth); } }
 
         /// <summary>Get total Resitiance of Entity</summary>
         public Dictionary<EElementalTypes, float> TotalResistance

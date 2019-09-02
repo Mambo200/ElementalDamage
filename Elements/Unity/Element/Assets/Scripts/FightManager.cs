@@ -49,12 +49,13 @@ public class FightManager : MonoBehaviour
         allEnemys = FindEnemies();
         foreach (Player player in allPlayers)
             player.attacked = false;
-        allEnemys[0].m_Arrow.SetActive(true);
+        //allEnemys[0].m_Arrow.SetActive(true);
         EnemyIndex = 0;
     }
 
     private void Update()
     {
+        if (allEnemys == null) return;
         if (allEnemys.Count != 0)
         {
 

@@ -19,8 +19,6 @@ public class Player : MonoBehaviour
 
         yield return new WaitForEndOfFrame();
         m_EUI.gameObject.SetActive(false);
-
-        // look for Enemys
     }
 
     // Update is called once per frame
