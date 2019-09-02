@@ -387,6 +387,12 @@
         <member name="P:Elements.Player.PlayerEntity.GetEntity">
             <summary>Get Entity</summary>
         </member>
+        <member name="P:Elements.Player.PlayerEntity.HealthPercentage">
+            <summary>Get the Health in Percent of Max health. from 0 to 100</summary>
+        </member>
+        <member name="P:Elements.Player.PlayerEntity.HealthPercentageZeroOne">
+            <summary>Get the Health in Percent of Max health. from 0 to 1</summary>
+        </member>
         <member name="P:Elements.Player.PlayerEntity.TotalResistance">
             <summary>Get total Resitiance of Entity</summary>
         </member>

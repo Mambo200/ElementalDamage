@@ -51,7 +51,9 @@ public class ShowStats : MonoBehaviour
         m_TotalDefence = enemy.TotalResistance;
         if (m_EUI == null)
         {
-            m_EUI = GameObject.FindObjectOfType<ElementUI>();
+            //m_EUI = GameObject.FindObjectOfType<ElementUI>();
+            //if (m_EUI == null) Debug.LogWarning("No Object with Element UI could be found");
+            m_EUI = SceneChangeManager.Get.ElementUI;
             if (m_EUI == null) Debug.LogWarning("No Object with Element UI could be found");
         }
     }

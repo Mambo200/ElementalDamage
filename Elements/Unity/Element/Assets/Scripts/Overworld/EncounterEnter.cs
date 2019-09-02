@@ -16,7 +16,7 @@ public class EncounterEnter : MonoBehaviour
     void Start()
     {
 
-        if(m_Enemies.Length <= 0 || m_Enemies == null)
+        if (m_Enemies.Length <= 0 || m_Enemies == null)
         {
             Debug.LogError("Enemy Encounter is 0 or null", this.gameObject);
             Debug.Break();
@@ -46,7 +46,8 @@ public class EncounterEnter : MonoBehaviour
         m_AfterDefeated.Invoke();
 
         // Player is not in fight anymore, set in fight bool to false
-        m_Player.m_InFight = false;
+        if (m_Player != null)
+            m_Player.m_InFight = false;
     }
 
 }

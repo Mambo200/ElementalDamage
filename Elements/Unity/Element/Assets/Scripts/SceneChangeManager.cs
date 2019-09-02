@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SceneChangeManager : MonoBehaviour
 {
+    [SerializeField] private ElementUI m_ElementUI;
+    public ElementUI ElementUI { get { return m_ElementUI; } }
+
     [Header("Main Gameobjects of Overworld and Battle")]
     [SerializeField] public Player m_PlayerBattle;
     [SerializeField] public PlayerOverworld m_PlayerOW;
@@ -49,17 +52,23 @@ public class SceneChangeManager : MonoBehaviour
         }
     }
     // Start is called before the first frame update
-    void Start()
+    public IEnumerator Start()
     {
+        if (m_ElementUI == null) Debug.LogWarning("Element UI is not set", this.gameObject);
         if(instance != null)
         {
             Debug.LogWarning("There is already one instance of SceneChangeManager. Destroy this");
             Destroy(this.gameObject);
-            return;
+            yield break;
         }
         instance = this;
 
+        m_BattleGO.SetActive(true);
+        MyCamBattle.GetCurrent.gameObject.SetActive(false);
+        yield return new WaitForEndOfFrame();
         m_PlayerBattle.Start();
+        MyCamBattle.GetCurrent.gameObject.SetActive(true);
+        m_BattleGO.SetActive(false);
     }
 
     // Update is called once per frame

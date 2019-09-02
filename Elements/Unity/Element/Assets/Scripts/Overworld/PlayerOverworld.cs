@@ -23,11 +23,10 @@ public class PlayerOverworld : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // do nothing in here if Player is in fight
         if (m_InFight == true) return;
-
-#pragma warning HIER
-        //if (MySceneManager.m_ChangedToOW)
-        //    ChangedToOW();
+        // do nothing in here if Player is in menu
+        if (MenuManager.Get.inMenu) return;
 
         Vector3 toMove = new Vector3();
         // Gravity
@@ -63,16 +62,5 @@ public class PlayerOverworld : MonoBehaviour
             go.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 3, this.transform.position.z);
         }
     }
-
-#pragma warning HIER
-    //private void ChangedToOW()
-    //{
-    //    CharacterController c = GetComponent<CharacterController>();
-    //    c.enabled = false;
-    //    transform.position = MySceneManager.m_PlayerPosition;
-    //    c.enabled = true;
-    //
-    //    MySceneManager.m_Executed = true;
-    //}
 
 }
