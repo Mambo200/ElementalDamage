@@ -10,6 +10,8 @@ TagManager:
   - Hint
   - BattleCam
   - Encounter
+  - Collectable
+  - EatAble
   layers:
   - Default
   - TransparentFX
