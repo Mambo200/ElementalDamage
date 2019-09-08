@@ -75,10 +75,17 @@ public class MenuManager : MonoBehaviour
     public TMPro.TMP_Text m_PlayerHP;
     #endregion
 
+
     /// <summary>Changes Color of Current HP Text depending on <see cref="Elements.Player.PlayerEntity.HealthPercentage"/></summary>
     [Header("Color of Current HP Text")]
     [Tooltip("Color Gradient which changed the Color of the Current HP text")]
     public Gradient m_CurrentHPColor;
+
+    #region Other Scritps
+    [Header("Food List Manager")]
+    [Tooltip("The Manager which activates when the Menu opens. It will manage the displaying Food collectables.")]
+    public FoodListManager m_FoodListManager;
+    #endregion
 
     /// <summary>Returns true if Player in in Menu -> if Menu Button is not active return true</summary>
     public bool inMenu { get => !m_MenuButton.gameObject.activeSelf; }

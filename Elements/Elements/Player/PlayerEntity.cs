@@ -163,6 +163,11 @@ namespace Elements.Player
         /// <param name="_newCurrentHealth">The new current health.</param>
         public void ChangeCurrentHealth(float _newCurrentHealth) => CurrentHealth = _newCurrentHealth;
         /// <summary>
+        /// Changes the current health.
+        /// </summary>
+        /// <param name="_healAmount">amount which will be added</param>
+        public void Heal(float _healAmount) => CurrentHealth += _healAmount;
+        /// <summary>
         /// Changes the weapon.
         /// </summary>
         /// <param name="_newWeapon">The new weapon.</param>

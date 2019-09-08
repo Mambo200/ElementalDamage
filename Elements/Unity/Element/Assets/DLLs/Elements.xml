@@ -438,6 +438,12 @@
             </summary>
             <param name="_newCurrentHealth">The new current health.</param>
         </member>
+        <member name="M:Elements.Player.PlayerEntity.Heal(System.Single)">
+            <summary>
+            Changes the current health.
+            </summary>
+            <param name="_healAmount">amount which will be added</param>
+        </member>
         <member name="M:Elements.Player.PlayerEntity.ChangeWeapon(Elements.Weapon)">
             <summary>
             Changes the weapon.
