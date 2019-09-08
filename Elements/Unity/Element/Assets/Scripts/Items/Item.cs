@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public abstract class Item : MonoBehaviour
 {
@@ -33,27 +34,6 @@ public abstract class Item : MonoBehaviour
     {
         Inventory.Get.RemoveItem(this);
     }
-
-    private void OnMouseDown()
-    {
-        Ray ray = MyCamBattle.GetCurrent.m_BattleCam.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out RaycastHit info))
-        {
-            Debug.Log(info.collider.gameObject.name, info.collider.gameObject);
-            if (info.collider.gameObject.tag == "EatAble")
-            {
-                // Food was clicked
-                string text = info.collider.gameObject.GetComponent<TMPro.TMP_Text>().text;
-                string[] split = text.Split('-');
-            }
-        }
-        else
-        {
-            Debug.Log(info.collider.gameObject.name, info.collider.gameObject);
-        }
-    }
-
 }
 
 public enum ItemType

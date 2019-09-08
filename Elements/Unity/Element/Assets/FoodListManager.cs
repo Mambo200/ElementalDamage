@@ -80,7 +80,6 @@ public class FoodListManager : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit info))
         {
-            Debug.Log(info.collider.gameObject.name, info.collider.gameObject);
             if (info.collider.gameObject.tag == "EatAble")
             {
                 // Food was clicked
