@@ -20,6 +20,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public bool ItemUsed { get; private set; }
     /// <summary>Returns a Copy of all collectable items</summary>
     public List<Item> Collectables { get => new List<Item>(m_Collectables); }
     /// <summary>Returns a Copy of all Weapons</summary>
@@ -29,10 +30,8 @@ public class Inventory : MonoBehaviour
     private List<Elements.Weapon> m_Weapons = new List<Elements.Weapon>();
 
     private Dictionary<string, int> itemAmount = new Dictionary<string, int>();
+    public Dictionary<string, int> ItemAmount { get => new Dictionary<string, int>(itemAmount); }
 
-    #region UI
-    [SerializeField] private GraphicRaycaster raycaster;
-    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -106,78 +105,7 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-
-            if (EventSystem.current.IsPointerOverGameObject())
-            {
-                //Set up the new Pointer Event
-                PointerEventData pointerData = new PointerEventData(EventSystem.current);
-                List<RaycastResult> results = new List<RaycastResult>();
-
-                //Raycast using the Graphics Raycaster and mouse click position
-                pointerData.position = Input.mousePosition;
-                this.raycaster.Raycast(pointerData, results);
-
-                // go through every Item and check if Food was clicked
-                foreach (RaycastResult res in results)
-                {
-                    // If UI Element does not has the tag EatAble continue
-                    if (res.gameObject.tag != "EatAble") continue;
-
-                    Item toUse = null;
-                    bool gotItem = false;
-                    int amount = -1;
-                    TMPro.TMP_Text textBox = res.gameObject.GetComponent<TMPro.TMP_Text>();
-
-                    if (textBox.text == "") continue; // no text content means no item available
-                    // Trim Text content
-                    string[] split = textBox.text.Split('-');
-                    string firstSplit = split[0].TrimEnd(' ');
-
-                    foreach (Item item in m_Collectables)
-                    {
-                        // check if clicked Item is equal 
-                        if (firstSplit != item.m_ItemName) continue;
-
-                        // if key is not present continue
-                        if (!itemAmount.ContainsKey(firstSplit)) continue;
-
-                        // Item found. save item
-                        amount = int.Parse(split[1].TrimStart(' '));
-                        toUse = item;
-                        gotItem = true;
-                        break;
-                    }
-
-                    // check if item was found
-                    if (!gotItem)
-                    {
-                        // no item was found
-                        Debug.LogWarning("No Item found");
-                        return;
-                    }
-                    // item was found
-                    string iName = toUse.m_ItemName;
-                    toUse.Use();
-                    amount--;
-
-                    // Set Textbox string
-                    if (amount > 0)
-                    {
-                        // Items available
-                        textBox.text = toUse.m_ItemName + " " + amount.ToString();
-                    }
-                    else
-                    {
-                        // no items available
-                        textBox.text = "";
-                    }
-
-                }
-            }
-
-        }
-
     }
+
+    public void SetItemUsed(bool _value) => ItemUsed = _value;
 }

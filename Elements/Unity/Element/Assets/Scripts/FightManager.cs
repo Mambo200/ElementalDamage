@@ -21,8 +21,6 @@ public class FightManager : MonoBehaviour
         }
     }
 
-
-
     private static FightManager instance;
     public static FightManager GetFight
     {

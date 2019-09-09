@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Enemies\Entity\Slime.cs" />
     <Compile Include="Assets\Scripts\EnemySpecificType.cs" />
     <Compile Include="Assets\Scripts\FightManager.cs" />
+    <Compile Include="Assets\Scripts\FightUIManager.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Items\Apple.cs" />
     <Compile Include="Assets\Scripts\Items\Bread.cs" />
