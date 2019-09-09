@@ -116,6 +116,9 @@ public class SceneChangeManager : MonoBehaviour
         MyCamOverworld.GetCurrent.gameObject.SetActive(false);
         MyCamBattle.GetCurrent.gameObject.SetActive(true);
 
+        // deactivate Menu Button
+        MenuManager.Get.m_MenuButton.gameObject.SetActive(false);
+
         FightManager.GetFight.NewRound();
     }
 
@@ -133,6 +136,10 @@ public class SceneChangeManager : MonoBehaviour
 
         // activate OW Camera
         MyCamOverworld.GetCurrent.gameObject.SetActive(true);
+
+        // activate Menu Button
+        MenuManager.Get.m_MenuButton.gameObject.SetActive(true);
+
     }
 
     /// <summary>

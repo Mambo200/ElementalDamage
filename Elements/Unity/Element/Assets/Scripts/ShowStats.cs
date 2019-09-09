@@ -67,8 +67,10 @@ public class ShowStats : MonoBehaviour
         
         if (!Physics.Raycast(ray, out RaycastHit info))
         {
+            // hit nothing
             if (m_wasHitLastFrame)
             {
+                // Mouse Left
                 m_Renderer.color = Color.white;
                 m_wasHitLastFrame = false;
                 m_EUI.ResetAllText();
@@ -76,8 +78,10 @@ public class ShowStats : MonoBehaviour
             return;
         }
         
+        // hit something
         if (info.collider.gameObject.tag != "StatsObject")
         {
+            // Mouse Left
             m_Renderer.color = Color.white;
             m_wasHitLastFrame = false;
             m_EUI.ResetAllText();
@@ -88,12 +92,15 @@ public class ShowStats : MonoBehaviour
         
         if (!m_wasHitLastFrame)
         {
+            // Mouse Enter
             m_Renderer.color = m_MouseOver;
             m_wasHitLastFrame = true;
-            m_EUI.SetAllText(enemy.Name, m_TotalDefence);
+            m_EUI.SetAllText(main, m_TotalDefence);
         
         }
         #endregion
         
     }
+
+    public void RefreshTotalDefence() => m_TotalDefence = enemy.TotalResistance;
 }

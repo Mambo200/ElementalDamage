@@ -11,8 +11,9 @@ public class ElementUI : MonoBehaviour
     public static Color Zero { get { return Color.white; } }
     public static Color Resistance { get { return new Color(0.2235293f, 1, 0.07843132f); } }
     public static Color Weakness { get { return new Color(1, 0.02745098f, 0.2274509f); } }
-    [Header("Name Textbox")]
+    [Header("Enemy Info")]
     [SerializeField] Text NameText;
+    [SerializeField] Text HPTextBox;
     [Header("Element Textboxes")]
     [SerializeField] Text FireText;
     [SerializeField] Text WaterText;
@@ -36,6 +37,7 @@ public class ElementUI : MonoBehaviour
     IEnumerator Start()
     {
         if (NameText == null) Debug.LogWarning("NameText is null", this.gameObject);
+        if (HPTextBox == null) Debug.LogWarning("HPTextBox is null", this.gameObject);
         if (FireText == null) Debug.LogWarning("FireText is null", this.gameObject);
         if (WaterText == null) Debug.LogWarning("WaterText is null", this.gameObject);
         if (ElectricityText == null) Debug.LogWarning("ElectricityText is null", this.gameObject);
@@ -53,6 +55,7 @@ public class ElementUI : MonoBehaviour
         AllText = new Text[]
         {
             NameText,
+            HPTextBox,
             FireText,
             WaterText,
             ElectricityText,
@@ -77,6 +80,14 @@ public class ElementUI : MonoBehaviour
     public void SetNameText(string _name)
     {
         NameText.text = _name;
+    }
+    public void SetHPText(string _text)
+    {
+        HPTextBox.text = _text;
+    }
+    public void SetHPText(int _currentHP, int _maxHP)
+    {
+        HPTextBox.text = _currentHP.ToString() + " / " + _maxHP.ToString();
     }
     public void SetFireText(int _percentage)
     {
@@ -114,7 +125,8 @@ public class ElementUI : MonoBehaviour
         else StoneText.text = _percentage.ToString();
         SetColor(_percentage, StoneText);
     }
-
+    
+    [System.Obsolete("This Method is deprecated. Please use SetAlltext(MainEntity, Dictionary<Elements.EElementalTypes, float> instead", true)]
     public void SetAllText(string _name, params Elements.ElementalMix[] _resistance)
     {
         SetNameText(_name);
@@ -151,7 +163,52 @@ public class ElementUI : MonoBehaviour
         }
     }
 
-    public void SetAllText(string _name, Dictionary<Elements.EElementalTypes, float> _resistance)
+    /// <summary>
+    /// Sets the Element UI Text
+    /// </summary>
+    /// <param name="_enemy">The MainEntity class. See <see cref="MainEntity"/></param>
+    /// <param name="_totalResistance">The total resistance.</param>
+    public void SetAllText(MainEntity _enemy, Dictionary<Elements.EElementalTypes, float> _totalResistance)
+    {
+        SetNameText(_enemy.Name);
+        foreach (KeyValuePair<Elements.EElementalTypes, float> kv in _totalResistance)
+        {
+            switch (kv.Key)
+            {
+                case Elements.EElementalTypes.NONE:
+                    break;
+                case Elements.EElementalTypes.NORMAL:
+                    break;
+                case Elements.EElementalTypes.FIRE:
+                    SetFireText((int)(kv.Value * 100));
+                    break;
+                case Elements.EElementalTypes.WATER:
+                    SetWaterText((int)(kv.Value * 100));
+                    break;
+                case Elements.EElementalTypes.ICE:
+                    SetIceText((int)(kv.Value * 100));
+                    break;
+                case Elements.EElementalTypes.ELECTRICITY:
+                    SetElectricityText((int)(kv.Value * 100));
+                    break;
+                case Elements.EElementalTypes.WIND:
+                    SetWindText((int)(kv.Value * 100));
+                    break;
+                case Elements.EElementalTypes.STONE:
+                    SetStoneText((int)(kv.Value * 100));
+                    break;
+                default:
+                    Debug.LogWarning(kv.Key + " is not implemented yet", this.gameObject);
+                    break;
+            }
+        }
+
+        SetHPText((int)(_enemy.Enemy.CurrentHealth + 0.5f), (int)_enemy.Enemy.MaxHealth);
+
+    }
+
+    [System.Obsolete("This Method is deprecated. Please use SetAlltext(MainEntity, Dictionary<Elements.EElementalTypes, float> instead", true)]
+    public void SetAllText(string _name, Dictionary<Elements.EElementalTypes, float> _resistance, int _currentHP, int _maxHP)
     {
         SetNameText(_name);
         foreach (KeyValuePair<Elements.EElementalTypes, float> kv in _resistance)
@@ -186,6 +243,8 @@ public class ElementUI : MonoBehaviour
             }
 
         }
+
+        SetHPText(_currentHP, _maxHP);
     }
 
     private void SetColor(int _percentage, Text _text)
@@ -199,6 +258,7 @@ public class ElementUI : MonoBehaviour
     public void ResetAllText()
     {
         SetNameText("No Enemy");
+        SetHPText(0, 0);
         SetFireText(0);
         SetWaterText(0);
         SetElectricityText(0);

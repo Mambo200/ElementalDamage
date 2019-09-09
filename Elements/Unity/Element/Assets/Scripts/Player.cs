@@ -24,6 +24,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // check if item was used
+        if(Inventory.Get.ItemUsed)
+        {
+            // Close menu. Set Values
+            FightUIManager.Get.CloseMenu();
+            Inventory.Get.SetItemUsed(false);
+            attacked = true;
+            return;
+        }
+        // check if playaer is in menu
+        if (FightUIManager.Get.InMenu) return;
+
         ShootRayForStats();
 
         if (Input.GetMouseButtonDown(0))
