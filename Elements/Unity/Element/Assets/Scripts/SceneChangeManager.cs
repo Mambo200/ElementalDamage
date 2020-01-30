@@ -24,6 +24,7 @@ public class SceneChangeManager : MonoBehaviour
     [SerializeField] private GameObject m_Slime;
     [SerializeField] private GameObject m_Golem;
     [SerializeField] private GameObject m_Bush;
+    [SerializeField] private GameObject m_Icegolem;
     #endregion
 
     [Header("Light")]
@@ -102,7 +103,8 @@ public class SceneChangeManager : MonoBehaviour
             m_Enemies[i].transform.position = new Vector3(
                 0 + xPos + i * m_XShiftPerEnemy,
                 10000 - 6,
-                m_Enemies[i].transform.position.z);
+                //m_Enemies[i].transform.position.z
+                10);
         }
 
 
@@ -157,6 +159,8 @@ public class SceneChangeManager : MonoBehaviour
                 return m_Golem;
             case EnemySpecificType.BUSH:
                 return m_Bush;
+            case EnemySpecificType.ICEGOLEM:
+                return m_Icegolem;
             default:
                 Debug.LogWarning("Not existing Type", this.gameObject);
                 break;

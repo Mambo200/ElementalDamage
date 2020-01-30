@@ -2,5 +2,6 @@
 {
     BUSH,
     SLIME,
-    GOLEM
+    GOLEM,
+    ICEGOLEM
 }

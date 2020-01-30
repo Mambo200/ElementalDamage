@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     public IEnumerator Start()
     {
-        player = new Elements.Player.Player("Haans", 200, 200, new Gear(new Top(), new Shirt(), new Pants()), PlayerWeapon.Icicle(1));
+        player = new Elements.Player.Player("Hans", 200, 200, new Gear(new Top(), new Shirt(), new Pants()), PlayerWeapon.Icicle(1));
 
         yield return new WaitForEndOfFrame();
         m_EUI.gameObject.SetActive(false);
@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
             attacked = true;
             return;
         }
-        // check if playaer is in menu
+        // check if player is in menu
         if (FightUIManager.Get.InMenu) return;
 
         ShootRayForStats();
