@@ -43,7 +43,8 @@ public class EncounterEnter : MonoBehaviour
     private void OnDestroy()
     {
         // Do Functions if Enemy is dead
-        m_AfterDefeated.Invoke();
+        if(m_AfterDefeated != null)
+            m_AfterDefeated.Invoke();
 
         // Player is not in fight anymore, set in fight bool to false
         if (m_Player != null)
